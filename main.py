@@ -7,6 +7,9 @@ def printer(arg):
 a = printer(100)
 
 print(a)
+<<<<<<< Updated upstream
 
 
 test
+=======
+>>>>>>> Stashed changes
