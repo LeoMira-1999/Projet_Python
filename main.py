@@ -7,7 +7,3 @@ def printer(arg):
 a = printer(100)
 
 print(a)
-<<<<<<< Updated upstream
-ghgjk
-=======
->>>>>>> Stashed changes
