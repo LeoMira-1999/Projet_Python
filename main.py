@@ -4,7 +4,10 @@ def printer(arg):
         print(x*i)
 
 
-a = printer(2)
+a = printer(100)
 
 print(a)
+<<<<<<< Updated upstream
 ghgjk
+=======
+>>>>>>> Stashed changes
