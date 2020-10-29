@@ -7,5 +7,4 @@ def printer(arg):
 a = printer(2)
 
 print(a)
-
-test
+ghgjk
