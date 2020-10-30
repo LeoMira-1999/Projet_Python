@@ -1,0 +1,5 @@
+Navigate to:
+https://ftp.ncbi.nih.gov/genomes/genbank/
+
+retreive sequence from latest assembly ending with "genomic.fna.gz":
+GCA_009729015.1_ASM972901v1_genomic.fna.gz
