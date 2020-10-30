@@ -5,4 +5,7 @@ def printer(arg):
 
 
 a = printer(100)
-atom://teletype/portal/82c18162-eab2-4dde-b9eb-6ae34d9bac4c
+
+sudo ln /usr/bin/python3 /usr/bin/python
+
+atom://teletype/portal/98c69925-fab5-4886-9e6d-6210f0b53fe4
