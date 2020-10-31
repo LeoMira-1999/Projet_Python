@@ -1,5 +1,4 @@
 import pandas as pd
-import pickle
 import os
 
 
@@ -19,4 +18,5 @@ column_ids_seq2 = df['subject acc.ver']
 
 print(column_ids_seq2)
 
-column_ids_seq2.to_csv('SP2.ids', sep='\t')
+with open('SP2.ids', 'x') as f:
+column_ids_seq2.to_csv(f, sep='\t',header=False)
