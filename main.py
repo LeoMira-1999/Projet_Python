@@ -1,3 +1,10 @@
-https://www.ncbi.nlm.nih.gov/books/NBK52640/
+import os
 
-atom://teletype/portal/ea765541-d8bf-490a-b9b3-2ea5adb65fa8
+S = "blastn -query GCF_001402945.1_ASM140294v1_genomic.fna -subject GCF_001402935.1_ASM140293v1_genomic.fna -outfmt 6 -subject_besthit"
+
+y = os.system(S)
+print("---------------------------")
+print(type(y))
+
+for x in y:
+    print(x)
