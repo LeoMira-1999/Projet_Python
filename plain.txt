@@ -5,6 +5,20 @@ retreive sequence from latest assembly ending with "genomic.fna.gz":
 GCA_009729015.1_ASM972901v1_genomic.fna.gz
 
 
+query_web_gen_1 = "wget --timestamping https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/402/935/GCF_001402935.1_ASM140293v1/GCF_001402935.1_ASM140293v1_genomic.fna.gz"
+os.system(query_web_gen_1)
+
+gunzip_gen_1 = "gunzip GCF_001402935.1_ASM140293v1_genomic.fna.gz"
+os.system(gunzip_gen_1)
+
+query_web_gen_2 = "wget --timestamping https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/402/945/GCF_001402945.1_ASM140294v1/GCF_001402945.1_ASM140294v1_genomic.fna.gz"
+os.system(query_web_gen_2)
+
+gunzip_gen_2 = "gunzip GCF_001402945.1_ASM140294v1_genomic.fna.gz"
+os.system(gunzip_gen_2)
+
+
+
 import pandas as pd
 import os
 
