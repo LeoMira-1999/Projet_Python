@@ -1,3 +1,4 @@
+import pandas as pd
 import os
 
 if os.path.isfile("test.fa"):
@@ -7,3 +8,7 @@ else:
     y = os.system(S)
     print("--------------------------")
     print(type(y))
+
+df = pd.read_csv("test.fa", sep='\t', lineterminator='\r')
+
+print(df)
