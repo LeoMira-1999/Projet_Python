@@ -9,6 +9,6 @@ else:
     print("--------------------------")
     print(type(y))
 
-df = pd.read_csv("test.fa", sep='\t', lineterminator='\r')
+df = pd.read_csv("test.fa", sep='\t')
 
 print(df)
