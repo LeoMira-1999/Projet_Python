@@ -1,3 +1,4 @@
+query acc.ver	subject acc.ver	% identity	alignment length	mismatches	gap opens	q. start	q. end	s. start	s. end	evalue	bit score
 NZ_LKBG01000001.1	NZ_LKBH01000125.1	99.942	22455	13	0	9739	32193	22455	1	0.0	41395
 NZ_LKBG01000002.1	NZ_LKBH01000010.1	99.018	13951	135	2	37	13985	13951	1	0.0	25002
 NZ_LKBG01000003.1	NZ_LKBH01000054.1	98.333	60	0	1	5832	5891	2955	2897	3.45e-22	104
