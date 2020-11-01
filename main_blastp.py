@@ -6,8 +6,8 @@ import pandas as pd
 def bidirectional_blast(SP1, SP2):
 
     os.system("./seqkit split "+SP1+" --by-part 100 --out-dir subset_SP1/")
-    os.system("makeblastdb -in "+SP2+" -parse_seqids -blastdb_version 5 -dbtype nucl -out SP2/SP2")
-    os.system("makeblastdb -in "+SP1+" -parse_seqids -blastdb_version 5 -dbtype nucl -out SP1/SP1")
+    os.system("makeblastdb -in "+SP2+" -parse_seqids -blastdb_version 5 -dbtype prot -out SP2/SP2")
+    os.system("makeblastdb -in "+SP1+" -parse_seqids -blastdb_version 5 -dbtype prot -out SP1/SP1")
     os.system("ls subset_SP1/ > files_SP1.txt")
     os.system("mkdir result_blast_1vs2")
 
@@ -19,8 +19,8 @@ def bidirectional_blast(SP1, SP2):
 
     for line in lines:
         line = line.replace("\n","")
-        blastn_SP1_vs_SP2 = "blastn -query subset_SP1/"+str(line)+" -db SP2/SP2 -outfmt 7 -subject_besthit -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_1vs2/blast_raw_1vs2_0"+str(i+1)+".fa"
-        os.system(blastn_SP1_vs_SP2)
+        blastp_SP1_vs_SP2 = "blastp -query subset_SP1/"+str(line)+" -db SP2/SP2 -outfmt 7 -subject_besthit -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_1vs2/blast_raw_1vs2_0"+str(i+1)+".fa"
+        os.system(blastp_SP1_vs_SP2)
         i+=1
 
     os.system("cat result_blast_1vs2/* > blast_raw_1vs2.fna")
@@ -65,8 +65,8 @@ def bidirectional_blast(SP1, SP2):
 
     for line in lines:
         line = line.replace("\n","")
-        blastn_SP1_vs_SP2 = "blastn -query subset_SP2_Blast_reciprocal/"+str(line)+" -db SP1/SP1 -outfmt 7 -subject_besthit -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
-        os.system(blastn_SP1_vs_SP2)
+        blastp_SP1_vs_SP2 = "blastp -query subset_SP2_Blast_reciprocal/"+str(line)+" -db SP1/SP1 -outfmt 7 -subject_besthit -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
+        os.system(blastp_SP1_vs_SP2)
         i+=1
 
     os.system("cat result_blast_2vs1_reciprocal/* > blast_raw_2vs1_reciprocal.fna")
@@ -97,13 +97,7 @@ def bidirectional_blast(SP1, SP2):
 
     os.system("mv reciprocal_hits.ids reciprocal_hits"+SP1+"_"+SP2+".ids")
 
-SP1 = "arc1.fna"
-SP2 = "arc2.fna"
+SP1 = "bact1_prot.faa"
+SP2 = "bact2_prot.faa"
 
 bidirectional_blast(SP1, SP2)
-
-
-def multi_bidirectional_blast(number_of_SP):
-
-
-    
