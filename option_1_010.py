@@ -38,8 +38,9 @@ data = []
 ftp.dir((data.append))
 print(data)
 #__________________________tentative____________________________
-from tkinter import* # création d'un menu qui va se remplir avec toute les sequences
+from tkinter import * # création d'un menu qui va se remplir avec toute les sequences
 fen =Tk()
+fen.geometry("200x200")
 mb =Menubutton(fen, text="Bacteria", relief=RAISED )
 mb.grid()
 mb.menu=Menu ( mb, tearoff = 0)
