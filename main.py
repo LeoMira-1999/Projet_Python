@@ -1,9 +1,9 @@
 import pandas as pd
 import os
 
-SP2 = "bact1.fna"
+SP2 = "homo.fna"
 
-SP1 = "bact2.fna"
+SP1 = "mus.fna"
 
 blastn_SP1_vs_SP2 = "blastn -query "+SP1+" -subject "+SP2+" -outfmt 7 -subject_besthit > blast_raw_1vs2.fa"
 os.system(blastn_SP1_vs_SP2)
