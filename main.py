@@ -19,7 +19,7 @@ def bidirectional_blast(SP1, SP2):
 
     for line in lines:
         line = line.replace("\n","")
-        blastn_SP1_vs_SP2 = "blastn -query subset_SP1/"+str(line)+" -db SP2/SP2 -outfmt 7 -subject_besthit -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_1vs2/blast_raw_1vs2_0"+str(i+1)+".fa"
+        blastn_SP1_vs_SP2 = "blastn -query subset_SP1/"+str(line)+" -db SP2/SP2 -outfmt 7   -num_threads "+str(multiprocessing.cpu_count())+" -evalue 1e-40> result_blast_1vs2/blast_raw_1vs2_0"+str(i+1)+".fa"
         os.system(blastn_SP1_vs_SP2)
         i+=1
 
@@ -65,7 +65,7 @@ def bidirectional_blast(SP1, SP2):
 
     for line in lines:
         line = line.replace("\n","")
-        blastn_SP1_vs_SP2 = "blastn -query subset_SP2_Blast_reciprocal/"+str(line)+" -db SP1/SP1 -outfmt 7 -subject_besthit -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
+        blastn_SP1_vs_SP2 = "blastn -query subset_SP2_Blast_reciprocal/"+str(line)+" -db SP1/SP1 -outfmt 7   -num_threads "+str(multiprocessing.cpu_count())+" -evalue 1e-40> result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
         os.system(blastn_SP1_vs_SP2)
         i+=1
 
@@ -104,6 +104,3 @@ bidirectional_blast(SP1, SP2)
 
 
 def multi_bidirectional_blast(number_of_SP):
-
-
-    

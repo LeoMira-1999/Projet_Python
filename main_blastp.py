@@ -18,7 +18,7 @@ def bidirectional_blast(SP1, SP2):
 
     for line in lines:
         line = line.replace("\n","")
-        blastp_SP1_vs_SP2 = "blastp -query subset_SP1/"+str(line)+" -db SP2/SP2 -outfmt 7 -subject_besthit -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_1vs2/blast_raw_1vs2_0"+str(i+1)+".fa"
+        blastp_SP1_vs_SP2 = "blastp -query subset_SP1/"+str(line)+" -db SP2/SP2 -outfmt 7 -evalue 1e-40 -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_1vs2/blast_raw_1vs2_0"+str(i+1)+".fa"
         os.system(blastp_SP1_vs_SP2)
         i+=1
 
@@ -64,7 +64,7 @@ def bidirectional_blast(SP1, SP2):
 
     for line in lines:
         line = line.replace("\n","")
-        blastp_SP1_vs_SP2 = "blastp -query subset_SP2_Blast_reciprocal/"+str(line)+" -db SP1/SP1 -outfmt 7 -subject_besthit -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
+        blastp_SP1_vs_SP2 = "blastp -query subset_SP2_Blast_reciprocal/"+str(line)+" -db SP1/SP1 -outfmt 7 -evalue 1e-40 -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
         os.system(blastp_SP1_vs_SP2)
         i+=1
 
@@ -91,7 +91,7 @@ def bidirectional_blast(SP1, SP2):
         with open('reciprocal_hits.ids', 'x') as f:
             column_ids_seq2.to_csv(f, sep='\t',header=False, index=False)
 
-    os.system("rm SP2.ids files_SP2_blast_reciprocal.txt blast_raw_2vs1_reciprocal.fna blast_best_hits_1vs2.fa temp_file.txt SP2_seq_best_hits_blast_1vs2.fa header_blast_1vs2.fa header_blast_2vs1.fa blast_reciprocal_2vs1.fa blast_raw_1vs2.fna")
+    os.system("rm header_blast_1vs2.fa header_blast_2vs1.fa SP2.ids files_SP2_blast_reciprocal.txt blast_raw_2vs1_reciprocal.fna blast_best_hits_1vs2.fa temp_file.txt SP2_seq_best_hits_blast_1vs2.fa blast_reciprocal_2vs1.fa blast_raw_1vs2.fna")
     os.system("rm -r subset_SP2_Blast_reciprocal result_blast_2vs1_reciprocal SP1 SP2")
 
     os.system("mv reciprocal_hits.ids reciprocal_hits"+SP1+"_"+SP2+".ids")
