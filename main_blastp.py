@@ -2,7 +2,6 @@ import os
 import multiprocessing
 import pandas as pd
 
-
 def bidirectional_blast(SP1, SP2):
 
     os.system("./seqkit split "+SP1+" --by-part 100 --out-dir subset_SP1/")
