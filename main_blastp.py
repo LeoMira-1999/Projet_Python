@@ -1,6 +1,26 @@
 import os
 import multiprocessing
 import pandas as pd
+import math
+from itertools import combinations
+
+def mean_prot_length_evalue(SP):
+    os.system("./seqkit stats "+SP+" > SP_mean_prot_length.txt")
+
+    f= open("SP_mean_prot_length.txt","r")
+
+    lines = f.readlines()
+
+    line = lines[1]
+    line = line.replace("\n","")
+    line = line.split(" ")
+
+    os.system("rm SP_mean_prot_length.txt")
+
+    evalue = (float(line[23])/100)*20
+    evalue = int(math.floor(evalue))
+
+    return str(evalue)
 
 def bidirectional_blast(SP1, SP2):
 
@@ -14,11 +34,13 @@ def bidirectional_blast(SP1, SP2):
 
     lines = f.readlines()
 
+    evalue = mean_prot_length_evalue(SP1)
+
     i = 0
 
     for line in lines:
         line = line.replace("\n","")
-        blastp_SP1_vs_SP2 = "blastp -query subset_SP1/"+str(line)+" -db SP2/SP2 -outfmt 7 -evalue 1e-40 -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_1vs2/blast_raw_1vs2_0"+str(i+1)+".fa"
+        blastp_SP1_vs_SP2 = "blastp -query subset_SP1/"+str(line)+" -db SP2/SP2 -outfmt 7 -evalue 1e-"+evalue+" -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_1vs2/blast_raw_1vs2_0"+str(i+1)+".fa"
         os.system(blastp_SP1_vs_SP2)
         i+=1
 
@@ -60,11 +82,14 @@ def bidirectional_blast(SP1, SP2):
 
     lines = f.readlines()
 
+    evalue = mean_prot_length_evalue(SP2)
+
+
     i = 0
 
     for line in lines:
         line = line.replace("\n","")
-        blastp_SP1_vs_SP2 = "blastp -query subset_SP2_Blast_reciprocal/"+str(line)+" -db SP1/SP1 -outfmt 7 -evalue 1e-40 -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
+        blastp_SP1_vs_SP2 = "blastp -query subset_SP2_Blast_reciprocal/"+str(line)+" -db SP1/SP1 -outfmt 7 -evalue 1e-"+evalue+" -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
         os.system(blastp_SP1_vs_SP2)
         i+=1
 
@@ -96,7 +121,21 @@ def bidirectional_blast(SP1, SP2):
 
     os.system("mv reciprocal_hits.ids reciprocal_hits"+SP1+"_"+SP2+".ids")
 
-SP1 = "bact1_prot.faa"
-SP2 = "bact2_prot.faa"
+def multi_RBH(*SP):
 
-bidirectional_blast(SP1, SP2)
+    species = list(SP)
+
+    comb = combinations(species,2)
+
+    for i in comb:
+        bidirectional_blast(*i)
+
+
+
+SP1 = "arc1_prot.faa"
+SP2 = "arc3_prot.faa"
+SP3 = "arc2_prot.faa"
+SP4 = "bact1_prot.faa"
+SP5 = "bact2_prot.faa"
+
+multi_RBH(SP1,SP2,SP3,SP4,SP5)
