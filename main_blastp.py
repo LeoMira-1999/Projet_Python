@@ -22,6 +22,7 @@ def mean_prot_length_evalue(SP):
     #get second line
     line = lines[1]
 
+
     #replace each \n with nothing
     line = line.replace("\n","")
 
@@ -30,10 +31,10 @@ def mean_prot_length_evalue(SP):
 
     #use bash to remove the previously created file
     os.system("rm SP_mean_prot_length.txt")
-
+    print(line[6])
     #calculate our evalue from the mean protein length located on the 6th separator and divide it by 100
     #multiply this ration by 20 in order to have a dynamic evalue where every 100 amino acids we add 20 to the evalue
-    evalue = (float(line[5])/100)*20
+    evalue = (float(line[6])/100)*20
 
     #remove the decimals and transform it into a string
     evalue = int(math.floor(evalue))
@@ -69,6 +70,8 @@ def bidirectional_blast(SP1, SP2):
 
     #calculate the evalue for the first species
     evalue = mean_prot_length_evalue(SP1)
+
+    print("EVALUE SP1: "+str(evalue))
 
     #setting a counter to 0
     i = 0
@@ -142,6 +145,7 @@ def bidirectional_blast(SP1, SP2):
     #calculate evalue for the mean length of our best hits file
     evalue = mean_prot_length_evalue("SP2_seq_best_hits_blast_1vs2.fa")
 
+    print("EVALUE SP1 BEST HITS: "+str(evalue))
     #start counter
     i = 0
 
@@ -186,12 +190,13 @@ def bidirectional_blast(SP1, SP2):
         #remove a index a second time (required)
         column_ids_seq2.to_csv(f, sep='\t',header=False, index=False)
 
-    #remove temporary files and folders
-    os.system("rm header_blast_1vs2.fa header_blast_2vs1.fa SP2.ids files_SP2_blast_reciprocal.txt blast_raw_2vs1_reciprocal.fna blast_best_hits_1vs2.fa temp_file.txt SP2_seq_best_hits_blast_1vs2.fa blast_reciprocal_2vs1.fa blast_raw_1vs2.fna")
-    os.system("rm -r subset_SP2_Blast_reciprocal result_blast_2vs1_reciprocal SP1 SP2")
+    #rename file with appropriate to the species analysis and remove duplicates
+    os.system("cat reciprocal_hits.ids | xargs -n1 | sort -u > reciprocal-hits_"+SP1+"_"+SP2+"_.ids")
 
-    #rename file with appropriate to the species analyse
-    os.system("mv reciprocal_hits.ids reciprocal_hits"+SP1+"_"+SP2+".ids")
+
+    #remove temporary files and folders
+    os.system("rm reciprocal_hits.ids header_blast_1vs2.fa header_blast_2vs1.fa blast_raw_1vs2.fna blast_raw_2vs1_reciprocal.fna SP2.ids files_SP2_blast_reciprocal.txt  blast_best_hits_1vs2.fa temp_file.txt SP2_seq_best_hits_blast_1vs2.fa blast_reciprocal_2vs1.fa ")
+    os.system("rm -r subset_SP2_Blast_reciprocal result_blast_2vs1_reciprocal SP1 SP2")
 
 def multi_RBH(*SP):
     """
@@ -212,11 +217,11 @@ def multi_RBH(*SP):
         bidirectional_blast(*i)
 
 
+SP1 = "arc1-prot.faa"
+SP2 = "arc3-prot.faa"
+SP3 = "arc2-prot.faa"
+SP4 = "bact1-prot.faa"
+SP5 = "bact2-prot.faa"
+SP6 = "E-coli-prot.faa"
 
-SP1 = "arc1_prot.faa"
-SP2 = "arc3_prot.faa"
-SP3 = "arc2_prot.faa"
-SP4 = "bact1_prot.faa"
-SP5 = "bact2_prot.faa"
-
-multi_RBH(SP1,SP2,SP3,SP4,SP5)
+multi_RBH(SP1,SP2,SP3)
