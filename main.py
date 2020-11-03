@@ -32,9 +32,10 @@ def mean_prot_length_evalue(SP):
     #use bash to remove the previously created file
     os.system("rm SP_mean_prot_length.txt")
     print(line[6])
+    mean_aa = "".join(line[6].split(","))
     #calculate our evalue from the mean protein length located on the 6th separator and divide it by 100
     #multiply this ration by 20 in order to have a dynamic evalue where every 100 amino acids we add 20 to the evalue
-    evalue = (float(line[6])/100)*20
+    evalue = (float(mean_aa)/100)*20
 
     #remove the decimals and transform it into a string
     evalue = int(math.floor(evalue))
@@ -311,7 +312,7 @@ SP4 = "bact1-prot.faa"
 SP5 = "bact2-prot.faa"
 SP6 = "E-coli-prot.faa"
 
-multi_RBH(SP1,SP2,SP3,SP4,SP5,SP6)
+"""multi_RBH(SP1,SP2,SP3,SP4,SP5,SP6)
 
-retreive_RBH_species_sequence(reciprocal_species_file_counter())
+retreive_RBH_species_sequence(reciprocal_species_file_counter())"""
 comparing_RBH_to_diff_species(reciprocal_sequence_species_file_counter())
