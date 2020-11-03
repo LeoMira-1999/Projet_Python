@@ -55,7 +55,7 @@ def retreive_RBH_species_sequence(dict):
 
         RBH_filename_sequences = "sequence-"+RBH_filename+".fa"
         os.system("blastdbcmd -entry_batch "+RBH_filename+" -db "+first_species_name+"/"+first_species_name+" -dbtype prot -out "+RBH_filename_sequences+"")
-        os.system("rm -r "+first_species_name+"")
+
 
 
 def reciprocal_sequence_species_file_counter():
@@ -89,11 +89,20 @@ def comparing_RBH_to_diff_species(dict):
                 species.append(called_name)
 
     for RBH_sequence_filename, species_filename in dict.items():
-         RBH_species = []
+        print(RBH_sequence_filename)
 
-         RBH_sequence_filename.split("_").append(RBH_species)
-         del RBH_species[1:len(RBH_species)]
-         print(RBH_species)
+        RBH_species = RBH_sequence_filename.split("_")
+
+        RBH_species.remove(RBH_species[0])
+        RBH_species.remove(RBH_species[len(RBH_species)-1])
+        print(species)
+        print(RBH_species)
+        for excluded_species in species:
+            if excluded_species not in RBH_species:
+                print(excluded_species)
+
+
+
 
 
 comparing_RBH_to_diff_species(reciprocal_sequence_species_file_counter())
