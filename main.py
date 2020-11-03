@@ -95,9 +95,6 @@ def bidirectional_blast(SP1, SP2):
     #concatenate each blasted results in result_blast_1vs2 as one 1
     os.system("cat result_blast_1vs2/* > blast_raw_1vs2.fna")
 
-    if os.stat("blast_raw_1vs2.fna").st_size == 0:
-        return os.system("touch reciprocal-hits_"+SP1+"_"+SP2+"_.ids")
-
     #remove temporary files and folders
     os.system("rm files_SP1.txt")
     os.system("rm -r result_blast_1vs2 subset_SP1")
@@ -105,6 +102,9 @@ def bidirectional_blast(SP1, SP2):
     #storing in a file the header to be used by our processed blast after having selected only the first hits (best hits) of each protein
     processing_1 = "echo \"query acc.ver\tsubject acc.ver\t% identity\talignment length\tmismatches\tgap opens\tq. start\tq. end\ts. start\ts. end\tevalue\tbit score\" > temp_file.txt | cat blast_raw_1vs2.fna |awk '/hits found/{getline;print}' | grep -v \"#\" > blast_best_hits_1vs2.fa"
     os.system(processing_1)
+
+    if os.stat("blast_best_hits_1vs2.fa").st_size == 0:
+        return os.system("touch reciprocal-hits_"+SP1+"_"+SP2+"_.ids")
 
     #concatenate the header and the best hits
     processing_2 = "cat temp_file.txt blast_best_hits_1vs2.fa > header_blast_1vs2.fa"
