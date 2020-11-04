@@ -184,7 +184,7 @@ def bidirectional_blast(SP1, SP2):
     df = pd.read_csv("header_blast_2vs1.fa", sep='\t')
 
     #retreive the accession of the subject
-    column_ids_seq2 = df['subject acc.ver']
+    column_ids_seq2 = df[['query acc.ver','subject acc.ver']]
 
     #remove the index
     column_ids_seq2.reset_index(drop=True, inplace=True)
@@ -195,11 +195,11 @@ def bidirectional_blast(SP1, SP2):
         column_ids_seq2.to_csv(f, sep='\t',header=False, index=False)
 
     #rename file with appropriate to the species analysis and remove duplicates
-    os.system("cat reciprocal_hits.ids | xargs -n1 | sort -u > reciprocal-hits_"+SP1+"_"+SP2+"_.ids")
+    os.system("cat reciprocal_hits.ids > reciprocal-hits_"+SP1+"_"+SP2+"_.ids")
 
 
     #remove temporary files and folders
-    os.system("rm reciprocal_hits.ids header_blast_1vs2.fa header_blast_2vs1.fa SP2.ids files_SP2_blast_reciprocal.txt  blast_best_hits_1vs2.fa temp_file.txt SP2_seq_best_hits_blast_1vs2.fa blast_reciprocal_2vs1.fa ")
+    os.system("rm blast_raw_1vs2.fna blast_raw_2vs1_reciprocal.fna reciprocal_hits.ids header_blast_1vs2.fa SP2.ids files_SP2_blast_reciprocal.txt  blast_best_hits_1vs2.fa temp_file.txt SP2_seq_best_hits_blast_1vs2.fa blast_reciprocal_2vs1.fa ")
     os.system("rm -r subset_SP2_Blast_reciprocal result_blast_2vs1_reciprocal SP1 SP2")
 
 def multi_RBH(*SP):
