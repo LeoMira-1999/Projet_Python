@@ -1,29 +1,3 @@
-from itertools import combinations
-import os
-
-def test_function(a, b):
-
-    print(a,b)
-
-def multi_RBH(*SP):
-    """
-    Arguments: can take N number of arguments
-    Returns: all the possible non redondant combinations for each especies to have a RBH
-    """
-
-    #turns all the arguments into a list
-    species = list(SP)
-
-    #creates a non redondant pair of two combination
-    comb = combinations(species,2)
-
-    #loops in the list of combination
-    for i in comb:
-
-        #launches the RBH for that combination
-        test_function(*i)
-
-
 def reciprocal_species_file_counter():
     os.system("ls reciprocal* > filename.txt")
 
@@ -35,6 +9,8 @@ def reciprocal_species_file_counter():
 
     for line in lines:
         line = line.split("_")
+        if line[1] == line[0]:
+            line.remove(line[0])
         key = '_'.join(line[1:len(line)-1])
         full_key= 'reciprocal-hits_'+key+'_.ids'
         dict_combination[full_key]=line[1:len(line)-1]
@@ -69,6 +45,8 @@ def reciprocal_sequence_species_file_counter():
 
     for line in lines:
         line = line.split("_")
+        if line[1] == line[0]:
+            line.remove(line[0])
         key = '_'.join(line[1:len(line)-1])
         full_key= 'sequence-reciprocal-hits_'+key+'_.ids.fa'
         dict_combination[full_key]=line[1:len(line)-1]
@@ -101,12 +79,8 @@ def comparing_RBH_to_diff_species(dict):
             if excluded_species not in RBH_species:
                 print(excluded_species)
 
+                bidirectional_blast(RBH_sequence_filename, excluded_species)
 
 
-
-
+retreive_RBH_species_sequence(reciprocal_species_file_counter())
 comparing_RBH_to_diff_species(reciprocal_sequence_species_file_counter())
-
-
-"""#multi_RBH("a","b","c")
-retreive_RBH_species_sequence(reciprocal_species_file_counter())"""

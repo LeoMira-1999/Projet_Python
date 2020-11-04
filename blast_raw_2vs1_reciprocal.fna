@@ -1,0 +1,613 @@
+# BLASTP 2.9.0+
+# Query: CCC29891.1 pyruvate dehydrogenase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC29891.1	AWR93240.1	35.252	556	342	7	1	552	1	542	1.49e-118	358
+# BLASTP 2.9.0+
+# Query: CCC30796.1 phosphoribosylglycinamide formyltransferase 2 [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC30796.1	AWR93550.1	45.641	390	207	2	4	388	3	392	4.37e-122	355
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30682.1 oligopeptide transport ATP-binding protein OppF [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC32462.1 glucosamine--fructose-6-phosphate aminotransferase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC32462.1	AWR94874.2	37.641	619	344	16	1	609	1	587	1.52e-120	366
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29405.1 putative cation transport ATPase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31964.1 ATP-dependent RNA helicase (dead-box protein) [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29418.1 2-methylcitrate synthase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC32051.1 biotin carboxylase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC32051.1	AWR94191.1	46.756	447	232	4	2	443	4	449	1.60e-134	393
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29720.1 succinate dehydrogenase flavoprotein subunit [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC29720.1	AWR94223.1	42.710	583	309	8	8	588	6	565	8.71e-157	457
+# BLASTP 2.9.0+
+# Query: CCC32644.1 cystathionine gamma-synthase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32762.1 acetyl-coenzyme A synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 4 hits found
+CCC32762.1	AWR94249.1	44.767	621	330	7	24	641	18	628	0.0	562
+CCC32762.1	AWR95689.1	41.538	650	361	8	9	646	13	655	0.0	545
+CCC32762.1	QIJ32852.1	39.907	644	359	14	12	641	11	640	1.09e-168	493
+CCC32762.1	AWR95799.1	33.987	612	384	13	33	641	20	614	6.47e-110	341
+# BLASTP 2.9.0+
+# Query: CCC32295.1 putative 2-hydroxyacid dehydrogenase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32130.1 acetylornithine aminotransferase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31978.1 cell division protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29425.1 delta-aminolevulinic acid dehydratase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC29288.1 glutamate-1-semialdehyde 2,1-aminomutase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC29288.1	AWR94334.1	41.412	425	236	5	4	426	10	423	5.40e-118	347
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31621.1 CTP synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC31621.1	AWR94354.1	49.162	537	258	4	5	537	4	529	0.0	525
+# BLASTP 2.9.0+
+# Query: CCC32899.1 inorganic pyrophosphatase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29141.1 isoleucyl-tRNA synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC29141.1	AWR94404.1	31.121	919	543	24	18	884	7	887	5.37e-131	417
+# BLASTP 2.9.0+
+# Query: CCC31978.1 cell division protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31935.1 catabolic threonine dehydratase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31978.1 cell division protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29475.1 thiamine biosynthesis protein ThiI [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31475.1 succinate-semialdehyde dehydrogenase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC31475.1	AWR93589.1	36.765	476	293	3	11	480	5	478	4.95e-111	334
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30730.1 glutamate dehydrogenase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC29553.1 cysteinyl-tRNA synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC29553.1	AWR94623.1	40.126	476	256	8	1	459	3	466	3.72e-123	363
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29611.1 alkyl hydroperoxide reductase F52A protein (subunit F) [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31709.1 subunit of methylmalonyl-CoA mutase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC31709.1	AWR93362.1	43.534	549	298	9	4	545	7	550	3.89e-150	444
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31685.1 lysyl tRNA synthetase (LysRS) [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC31685.1	AWR94681.1	40.657	487	275	8	22	501	7	486	1.10e-119	357
+# BLASTP 2.9.0+
+# Query: CCC31204.1 amidophosphoribosyltransferase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29245.1 dihydrolipoamide dehydrogenase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC32924.1 aspartate carbamoyltransferase catalytic subunit [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29914.1 seryl-tRNA synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC30963.1 histidinol dehydrogenase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30968.1 cyclase HisF [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC32683.1 thiamine biosynthesis protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31223.1 chorismate synthase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC32146.1 3-dehydroquinate synthase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32462.1 glucosamine--fructose-6-phosphate aminotransferase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC32462.1	AWR94874.2	37.641	619	344	16	1	609	1	587	1.52e-120	366
+# BLASTP 2.9.0+
+# Query: CCC32578.1 glutamine synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC32578.1	AWR94890.1	44.561	478	239	11	2	467	4	467	1.47e-130	382
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32217.1 cell division protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31389.1 serine hydroxymethyltransferase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30298.1 conserved hypothetical protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC30298.1	AWR94944.1	37.418	457	263	5	37	491	38	473	3.20e-113	339
+# BLASTP 2.9.0+
+# Query: CCC30299.1 putative ABC transport ATP-binding subunit [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32275.1 dipeptide transport ATP-binding protein DppD [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC30682.1 oligopeptide transport ATP-binding protein OppF [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31697.1 glycine dehydrogenase (decarboxylating) [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31620.1 enolase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30663.1 anthranilate synthase component I [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC30290.1 phosphoenolpyruvate synthase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC30290.1	AWR94979.1	40.881	795	405	17	10	783	11	761	0.0	569
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32558.1 conserved hypothetical protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31452.1 signal recognition particle protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29505.1 putative ammonium transporter [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC30274.1 threonyl-tRNA synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC30274.1	AWR95093.1	38.889	432	258	4	212	639	104	533	2.72e-110	339
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29725.1 succinyl-CoA synthetase alpha chain [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC30467.1 putative hydrolase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC30467.1	AWR95146.1	34.217	792	415	23	6	780	5	707	9.88e-142	434
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30466.1 putative glycogen debranching protein GlgX [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC30466.1	AWR95147.1	47.801	705	341	12	10	690	9	710	0.0	637
+# BLASTP 2.9.0+
+# Query: CCC30468.1 putative hydrolase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC30468.1	AWR95148.1	40.727	523	274	14	20	527	16	517	1.09e-129	388
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30305.1 pyruvate kinase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC30541.1 alcohol dehydrogenase class III [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29502.1 putative ABC transporter ATP-binding membrane protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC29162.1 putative MFS-family transport protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31475.1 succinate-semialdehyde dehydrogenase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC31475.1	AWR93589.1	36.765	476	293	3	11	480	5	478	4.95e-111	334
+# BLASTP 2.9.0+
+# Query: CCC30618.1 ABC transporter, ATP-binding component [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30605.1 ABC transporter ATP-binding protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC32768.1 formate dehydrogenase H [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC32768.1	AWR95528.1	36.910	699	421	12	1	694	253	936	9.38e-150	457
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29288.1 glutamate-1-semialdehyde 2,1-aminomutase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC29288.1	AWR94334.1	41.412	425	236	5	4	426	10	423	5.40e-118	347
+# BLASTP 2.9.0+
+# Query: CCC30683.1 oligopeptide transport ATP-binding protein OppD [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32762.1 acetyl-coenzyme A synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 4 hits found
+CCC32762.1	AWR94249.1	44.767	621	330	7	24	641	18	628	0.0	562
+CCC32762.1	AWR95689.1	41.538	650	361	8	9	646	13	655	0.0	545
+CCC32762.1	QIJ32852.1	39.907	644	359	14	12	641	11	640	1.09e-168	493
+CCC32762.1	AWR95799.1	33.987	612	384	13	33	641	20	614	6.47e-110	341
+# BLASTP 2.9.0+
+# Query: CCC32768.1 formate dehydrogenase H [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC32768.1	AWR95528.1	36.910	699	421	12	1	694	253	936	9.38e-150	457
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32212.1 4-aminobutyrate aminotransferase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31534.1 hydrogenase isoenzymes formation protein HypD [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29794.1 hypothetical ABC transporter ATP-binding protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31938.1 2-hydroxy-3-oxopropionate reductase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31475.1 succinate-semialdehyde dehydrogenase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC31475.1	AWR93589.1	36.765	476	293	3	11	480	5	478	4.95e-111	334
+# BLASTP 2.9.0+
+# Query: CCC32644.1 cystathionine gamma-synthase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32762.1 acetyl-coenzyme A synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 4 hits found
+CCC32762.1	AWR94249.1	44.767	621	330	7	24	641	18	628	0.0	562
+CCC32762.1	AWR95689.1	41.538	650	361	8	9	646	13	655	0.0	545
+CCC32762.1	QIJ32852.1	39.907	644	359	14	12	641	11	640	1.09e-168	493
+CCC32762.1	AWR95799.1	33.987	612	384	13	33	641	20	614	6.47e-110	341
+# BLASTP 2.9.0+
+# Query: CCC32762.1 acetyl-coenzyme A synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 4 hits found
+CCC32762.1	AWR94249.1	44.767	621	330	7	24	641	18	628	0.0	562
+CCC32762.1	AWR95689.1	41.538	650	361	8	9	646	13	655	0.0	545
+CCC32762.1	QIJ32852.1	39.907	644	359	14	12	641	11	640	1.09e-168	493
+CCC32762.1	AWR95799.1	33.987	612	384	13	33	641	20	614	6.47e-110	341
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30129.1 3-oxoacyl-[acyl-carrier protein] reductase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC30050.1 putative 4-hydroxyphenylacetate permease [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32212.1 4-aminobutyrate aminotransferase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31306.1 NADP-dependent malate dehydrogenase (decarboxylating) [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32762.1 acetyl-coenzyme A synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 4 hits found
+CCC32762.1	AWR94249.1	44.767	621	330	7	24	641	18	628	0.0	562
+CCC32762.1	AWR95689.1	41.538	650	361	8	9	646	13	655	0.0	545
+CCC32762.1	QIJ32852.1	39.907	644	359	14	12	641	11	640	1.09e-168	493
+CCC32762.1	AWR95799.1	33.987	612	384	13	33	641	20	614	6.47e-110	341
+# BLASTP 2.9.0+
+# Query: CCC29420.1 propionate--CoA ligase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 3 hits found
+CCC29420.1	AWR94249.1	38.633	629	371	8	3	628	18	634	1.24e-162	477
+CCC29420.1	AWR95689.1	38.185	639	374	10	2	628	27	656	5.31e-153	452
+CCC29420.1	QIJ32852.1	40.252	636	358	13	3	628	23	646	5.93e-151	447
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29716.1 citrate synthase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC29417.1 putative carboxyvinyl-carboxyphosphonate phosphorylmutase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32495.1 dihydroxyacid dehydratase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC32495.1	AWR93492.1	38.550	607	318	10	3	608	4	556	1.08e-130	391
+# BLASTP 2.9.0+
+# Query: CCC30169.1 isocitrate dehydrogenase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC30169.1	AWR93496.1	47.291	406	206	4	8	413	5	402	2.45e-134	388
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32274.1 dipeptide transport ATP-binding protein DppF [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC32017.1 cytosine deaminase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31675.1 putative acetyl-CoA acetyltransferase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC32385.1 Magnesium transport ATPase, P-type 2 [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31306.1 NADP-dependent malate dehydrogenase (decarboxylating) [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31030.1 methionyl-tRNA synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31173.1 NADH dehydrogenase I chain C; chain D [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC32937.1 valyl-tRNA synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30384.1 fumarate hydratase class II [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC30653.1 aconitate hydratase 1 (citrate hydro-lyase 1) [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC30653.1	AWR96015.1	49.133	865	391	17	28	891	16	832	0.0	840
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32512.1 UDP-N-acetylglucosamine epimerase (UDP-GlcNAc-2-epimerase) [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31520.1 hydrogenase maturation protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC31520.1	AWR96042.1	33.737	744	442	24	15	734	10	726	1.43e-127	393
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31535.1 hydrogenase isoenzymes formation protein HypE [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC32409.1 acetohydroxy acid synthase I, small subunit [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31475.1 succinate-semialdehyde dehydrogenase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC31475.1	AWR93589.1	36.765	476	293	3	11	480	5	478	4.95e-111	334
+# BLASTP 2.9.0+
+# Query: CCC31428.1 putative acyl-CoA synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC29150.1 carbamoyl-phosphate synthase large chain [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC29150.1	QIJ32837.1	41.195	971	553	11	7	971	1	959	0.0	740
+# BLASTP 2.9.0+
+# Query: CCC32762.1 acetyl-coenzyme A synthetase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 4 hits found
+CCC32762.1	AWR94249.1	44.767	621	330	7	24	641	18	628	0.0	562
+CCC32762.1	AWR95689.1	41.538	650	361	8	9	646	13	655	0.0	545
+CCC32762.1	QIJ32852.1	39.907	644	359	14	12	641	11	640	1.09e-168	493
+CCC32762.1	AWR95799.1	33.987	612	384	13	33	641	20	614	6.47e-110	341
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32017.1 cytosine deaminase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC31476.1 4-aminobutyrate aminotransferase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC31061.1 putative pyrimidine metabolism oxidoreductase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC29288.1 glutamate-1-semialdehyde 2,1-aminomutase [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC29288.1	AWR94334.1	41.412	425	236	5	4	426	10	423	5.40e-118	347
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC32199.1 sn-Glycerol-3-phosphate transport ATP-binding protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLASTP 2.9.0+
+# Query: CCC29160.1 FixC protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
+# BLASTP 2.9.0+
+# Query: CCC30298.1 conserved hypothetical protein [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+CCC30298.1	AWR94944.1	37.418	457	263	5	37	491	38	473	3.20e-113	339
+# BLASTP 2.9.0+
+# Query: CCC31534.1 hydrogenase isoenzymes formation protein HypD [Salmonella bongori NCTC 12419]
+# Database: SP1/SP1
+# 0 hits found
+# BLAST processed 2 queries
