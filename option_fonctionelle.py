@@ -1,4 +1,4 @@
-import ftplib #SI USER A DEJA UN FICHIER GENOME
+import ftplib
 import os
 from datetime import datetime
 import pandas as pd
@@ -14,12 +14,12 @@ FTP_PASS = ""
 ftp = ftplib.FTP(FTP_HOST, FTP_USER, FTP_PASS)
 # force UTF-8 encoding
 ftp.encoding = "utf-8"
-# print the welcome message
+# print the welcome message of NCBI
 print(ftp.getwelcome())
 # change the current working directory to refseq
 ftp.cwd('genomes/refseq/')
 
-# LIST1 a directory of bacteria
+# directory of bacteria to
 ftp.cwd('bacteria/')
 print("*"*50, "LIST_1", "*"*50)
 data_bac = []
@@ -75,20 +75,26 @@ ftp.cwd('..')
 #Fonction choix changement de direction, selection d'oganisme, +taxon
 def chang_direction():
     global valeur
-    valeur = entreeH.get()
+    global valeur_temp
+    valeur_temp = entreeH.get()
+    valeur = valeur_temp.split(":", 1)
     global organism_selected
     global taxon
-    if (var_bacteria.get() == 1):
+    if (valeur[0] == 'bac'):
+        l.config(text='Bacteria selected ')
         ftp.cwd('bacteria/')
-        organism_selected=organism_bac[organism_bac.index(valeur)]
+        organism_selected=organism_bac[organism_bac.index(valeur[-1])]
+        print()
         taxon='bacteria'
-    elif (var_vertebrate_mammalian.get() == 1):
+    elif (valeur[0] == 've_m'):
+        l.config(text='vertebrate_mammalian selected')
         ftp.cwd('vertebrate_mammalian/')
-        organism_selected=organism_vertebrate_mammalian[organism_vertebrate_mammalian.index(valeur)]
+        organism_selected=organism_vertebrate_mammalian[organism_vertebrate_mammalian.index(valeur[-1])]
         taxon='vertebrate_mammalian'
     else:
+        l.config(text='archae selected')
         ftp.cwd('archaea/')
-        organism_selected=organism_arc[organism_arc.index(valeur)]
+        organism_selected=organism_arc[organism_arc.index(valeur[-1])]
         taxon='archaea'
 
 
@@ -97,7 +103,7 @@ data_2=[]
 def get_seq():
     chang_direction()
     print("------------------")
-    labelRes.configure(text=" nom de l'organisme : " + str(valeur))
+    labelRes.configure(text=" nom de l'organisme : " + str(valeur[-1]))
     cwd_dir=str(organism_selected)+'/all_assembly_versions/'
     print(ftp.cwd(cwd_dir)) #cherche l'accession lors que l'animal est selectionné
     print(ftp.dir(data_2.append))
@@ -110,8 +116,12 @@ def get_seq():
 #    command os.system
     os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/"+taxon+"/"+organism_selected+"/all_assembly_versions/"+accession+"/"+accession+"_protein.faa.gz ")
     os.system("gunzip "+accession+"_protein.faa.gz ")
-    os.system("mv "+accession+"_protein.faa "+organism_selected+"-protein.faa")
-    fenetre.destroy()
+    os.system("mv "+accession+"_protein.faa "+(organism_selected.replace("_", "-"))+"-protein.faa")
+    print(ftp.cwd('..'))# on ressors du directory pour revenir a refseq
+    print(ftp.cwd('..'))
+    print(ftp.cwd('..'))
+    print(ftp.pwd())
+
 
 from tkinter import * # création d'un menu qui va se remplir avec toute les sequences
 
@@ -119,8 +129,9 @@ from tkinter import * # création d'un menu qui va se remplir avec toute les seq
 fenetre = Tk()
 fenetre.title (" Add genomes")
 
+
 # création d’un champ text
-labelH = Label(fenetre, text=" veuillez CTRL+C/CTRL+V un organisme la liste")
+labelH = Label(fenetre, text=" veuillez CTRL+C/CTRL+V un organisme de la liste")
 labelRes = Label(fenetre, text = " en attente")
 
 # creation d’un champ de saisie
@@ -131,39 +142,16 @@ entreeH = Entry(fenetre, textvariable= value1, width =30)
 boutonResearch = Button(fenetre, text = "download", command = get_seq)
 boutonQuitter = Button(fenetre, text = " quitter", command = fenetre.quit)
 
-#création checkbuttun + label qui affiche la selectionné
+#création label qui affiche la selection
 l = Label(fenetre, bg='white', width=20, text='empty')
-l.pack()
-
-def print_selection():
-    var=var_bacteria.get()+var_archae.get()+var_vertebrate_mammalian.get()
-    if (var>1):
-        l.config(text='trop de case coché')
-    elif (var_bacteria.get() == 1):
-        l.config(text='Bacteria selected ')
-    elif (var_archae.get() == 1):
-        l.config(text='archae selected')
-    elif (var_vertebrate_mammalian.get() == 1):
-        l.config(text='vertebrate_mammalian selected')
-    else:
-        l.config(text='nothing selected')
-
-var_bacteria = IntVar()
-var_archae = IntVar()
-var_vertebrate_mammalian = IntVar()
-c1 = Checkbutton(fenetre, text='bacteria',variable=var_bacteria, onvalue=1, offvalue=0, command=print_selection)
-c1.pack(side=TOP, anchor=W)
-c2 = Checkbutton(fenetre, text='archae',variable=var_archae, onvalue=1, offvalue=0, command=print_selection)
-c2.pack(side=TOP, anchor=W)
-c3 = Checkbutton(fenetre, text='vertebrate_mammalian',variable=var_vertebrate_mammalian, onvalue=1, offvalue=0, command=print_selection)
-c3.pack(side=TOP, anchor=W)
 
 # affichage des objets crées
-labelH.pack()
-entreeH.pack()
+l.pack()
 labelRes.pack()
+entreeH.pack()
 boutonResearch.pack()
 boutonQuitter.pack()
+labelH.pack()
 
 #création checkbox bacteria
 scrollbar = Scrollbar(fenetre)
