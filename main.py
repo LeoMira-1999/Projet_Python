@@ -4,6 +4,9 @@ import multiprocessing #importing multiprocessing will let us count the amount o
 import pandas as pd #importing pandas to read our blasted files and retreive the information needed
 import math #import math to use math.floor in mean_prot_length_evalue function
 from itertools import combinations # imorting combinations from itertools to generate a combination of non-redundant pairs for the multi_RBH function
+from option_fonctionelle import *
+import glob
+
 
 def mean_prot_length_evalue(SP):
     """
@@ -220,13 +223,14 @@ def multi_RBH(*SP):
         #launches the RBH for that combination
         bidirectional_blast(*i)
 
+def proteome_file_finder():
+
+    faa_files =[]
+    for file in glob.glob("*.faa"):
+        faa_files.append(file)
+    return faa_files
 
 
-SP1 = "arc1-prot.faa"
-SP2 = "arc3-prot.faa"
-SP3 = "arc2-prot.faa"
-SP4 = "bact1-prot.faa"
-SP5 = "bact2-prot.faa"
-SP6 = "E-coli-prot.faa"
+ftp_refseq_proteome_finder()
 
-multi_RBH(SP1,SP2,SP3,SP4,SP5,SP6)
+multi_RBH(*proteome_file_finder())

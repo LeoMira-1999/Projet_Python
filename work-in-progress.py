@@ -1,6 +1,7 @@
 from itertools import combinations
 import os
 import pandas as pd
+import glob
 
 def test_function(a,b):
 
@@ -42,70 +43,45 @@ def RBH_comparator():
 
             for prot_pairs in raw_prot_pairs:
                 prot = prot_pairs.replace("\n","")
-                prot = prot.split("\t")
+                prot = prot.split()
                 cleaned_prot_paired.append(prot)
         dict_combination[filename]=cleaned_prot_paired
     print(dict_combination)
     return dict_combination
 
-def combinator(list1, list2):
-    liste = list1 + list2
-    comb = combinations(liste, 2)
-
-    return comb
-
 def RBH_analysor(dict):
 
-    total_species = []
-    RBH_filename_dict = {}
+    cluster = []
+    for RBH_filename1, prot_pairs1 in dict.items():
+        for RBH_filename2, prot_pairs2 in dict.items():
 
-    for RBH_filename, total_prot_pairs in dict.items():
-        print("The file name is: ",RBH_filename)
-        RBH_species_filename = RBH_filename.split("_")
+            print(RBH_filename2)
+            print(prot_pairs2)
+            mini_cluster = []
+            if RBH_filename1 != RBH_filename2 and prot_pairs1 != prot_pairs2:
 
-        print("Has these pairs: ",total_prot_pairs)
-        RBH_filename_species = RBH_species_filename[1:len(RBH_species_filename)-1]
 
-        for RBH_species_finder in RBH_filename_species:
+                for unique_prot_pair2 in prot_pairs2:
+                    print(unique_prot_pair2)
 
-            RBH_filename_dict[RBH_filename]=RBH_filename_species
-
-            if RBH_species_finder not in total_species:
-                total_species.append(RBH_species_finder)
-    real_combinations=[]
-    for RBH_filename, RBH_filename_species in RBH_filename_dict.items():
-        print("first species is: ",RBH_filename_species[0])
-        print("second species is: ",RBH_filename_species[1])
-        to_do_combination = []
-        to_combine_with = RBH_filename_species
-        for species in total_species:
-
-            if RBH_filename_species[0] != species and RBH_filename_species[1] != species:
-                print("found new link:",species)
-                to_do_combination.append(species)
-
-        print("to do combinations: ",to_do_combination)
-        print("to combine with: ", to_combine_with)
-        possible_combinations = combinator(to_do_combination, to_combine_with)
-
-        for true_combinations in possible_combinations:
-            print([*true_combinations])
-            for true_combination in true_combinations:
-                if true_combination == RBH_filename_species:
-                    real_combinations.append(RBH_filename)
-        print(real_combinations)
+                    for unique_prot_pair1 in prot_pairs1:
 
 
 
+                        if unique_prot_pair1[0] in unique_prot_pair2 or unique_prot_pair1[1] in unique_prot_pair2:
+                            print(unique_prot_pair1[1],unique_prot_pair2)
+                            print(unique_prot_pair1[0],unique_prot_pair2)
+                            temporary=[]
+                            for i in range(len(unique_prot_pair2)):
+                                temporary.append(unique_prot_pair2[i])
 
-    print("Total species: ", total_species)
-    print("These are all the files: ", RBH_filename_dict)
+                            temporary.append(unique_prot_pair1[1])
+                            mini_cluster.append(temporary)
 
 
 
-SP4 = "bact1-prot.faa"
-SP5 = "bact2-prot.faa"
-SP6 = "E-coli-prot.faa"
+            print(mini_cluster)
 
-"""multi_RBH(SP1,SP2,SP3)"""
+
+
 RBH_analysor(RBH_comparator())
