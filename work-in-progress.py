@@ -72,7 +72,7 @@ def RBH_analysor(dict):
 
             if RBH_species_finder not in total_species:
                 total_species.append(RBH_species_finder)
-
+    real_combinations=[]
     for RBH_filename, RBH_filename_species in RBH_filename_dict.items():
         print("first species is: ",RBH_filename_species[0])
         print("second species is: ",RBH_filename_species[1])
@@ -87,10 +87,15 @@ def RBH_analysor(dict):
         print("to do combinations: ",to_do_combination)
         print("to combine with: ", to_combine_with)
         possible_combinations = combinator(to_do_combination, to_combine_with)
+
         for true_combinations in possible_combinations:
             print([*true_combinations])
-            if true_combinations == RBH_filename_species:
-                print("this is possible:", true_combinations)
+            for true_combination in true_combinations:
+                if true_combination == RBH_filename_species:
+                    real_combinations.append(RBH_filename)
+        print(real_combinations)
+
+
 
 
     print("Total species: ", total_species)
