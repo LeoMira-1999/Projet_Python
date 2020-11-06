@@ -6,6 +6,14 @@ import numpy as np
 import random
 from tkinter import * # création d'un menu qui va se remplir avec toute les sequences
 
+import ftplib
+import os
+from datetime import datetime
+import pandas as pd
+import numpy as np
+import random
+from tkinter import * # création d'un menu qui va se remplir avec toute les sequences
+
 def ftp_refseq_proteome_finder():
     FTP_HOST = "ftp.ncbi.nlm.nih.gov"
     FTP_USER = "anonymous"
@@ -132,7 +140,7 @@ def ftp_refseq_proteome_finder():
 
 
     # création d’un champ text
-    labelH = Label(fenetre, text=" veuillez CTRL+C/CTRL+V un organisme de la liste")
+    labelH = Label(fenetre, text="note: veuillez CTRL+C/CTRL+V un organisme de la liste \n \n to search :")
     labelRes = Label(fenetre, text = " en attente")
 
     # creation d’un champ de saisie
@@ -154,23 +162,52 @@ def ftp_refseq_proteome_finder():
     boutonQuitter.pack()
     labelH.pack()
 
-    #création checkbox bacteria
-    scrollbar = Scrollbar(fenetre)
-    scrollbar.pack( side = RIGHT, fill = Y )
 
-    #création list avec all organisme proposition
-    mylist = Listbox(fenetre,width=30, height=20, yscrollcommand = scrollbar.set )
-    for line in range(0,len(organism_bac)):
-       mylist.insert(END, "bac:"+str(organism_bac[line]))
-    for line in range(0,len(organism_arc)):
-       mylist.insert(END, "arc:"+str(organism_arc[line]))
-    for line in range(0,len(organism_vertebrate_mammalian)):
-       mylist.insert(END, "ve_m:"+str(organism_vertebrate_mammalian[line]))
+    class Application(Frame):
+        def __init__(self, master=None):
+            Frame.__init__(self, master)
+            self.pack()
+            self.create_widgets()
 
-    mylist.pack( side = LEFT, fill = BOTH )
-    scrollbar.config( command = mylist.yview )
+    # Create main GUI window
+        def create_widgets(self):
+            self.search_var = StringVar()
+            self.search_var.trace("w", self.update_list)
+            self.entry = Entry(self, textvariable=self.search_var, width=30)
+            self.lbox = Listbox(self, width=45, height=15)
 
+            self.entry.grid(row=0, column=0, padx=10, pady=3)
+            self.lbox.grid(row=1, column=0, padx=10, pady=3)
+
+        # Function for updating the list/doing the search.
+        # It needs to be called here to populate the listbox.
+            self.update_list()
+
+        def update_list(self, *args):
+            search_term = self.search_var.get()
+
+        # Just a generic list to populate the listbox
+            lbox_list = []
+            organism_bac_head = ["bac:" + item for item in organism_bac]
+            lbox_list.extend(organism_bac_head)
+
+            organism_arc_head = ["arc:" + item for item in organism_arc]
+            lbox_list.extend(organism_arc_head)
+
+            organism_vertebrate_mammalian_head = ["ve_m:" + item for item in organism_arc]
+            lbox_list.extend(organism_vertebrate_mammalian_head)
+
+
+            self.lbox.delete(0, END)
+
+            for item in lbox_list:
+                if search_term.lower() in item.lower():
+                    self.lbox.insert(END, item)
+
+
+    Application()
     # lancement de la fenetre et attente des clics
     fenetre.mainloop()
     # destruction de la fenêtre après l’avoir quittée
     fenetre.destroy()
+ftp_refseq_proteome_finder()
