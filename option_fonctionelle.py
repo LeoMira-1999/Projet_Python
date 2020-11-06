@@ -6,14 +6,6 @@ import numpy as np
 import random
 from tkinter import * # création d'un menu qui va se remplir avec toute les sequences
 
-import ftplib
-import os
-from datetime import datetime
-import pandas as pd
-import numpy as np
-import random
-from tkinter import * # création d'un menu qui va se remplir avec toute les sequences
-
 def ftp_refseq_proteome_finder():
     FTP_HOST = "ftp.ncbi.nlm.nih.gov"
     FTP_USER = "anonymous"
