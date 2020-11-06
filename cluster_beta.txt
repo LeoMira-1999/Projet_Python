@@ -1,0 +1,18 @@
+AC1	 du grp	['AC1', 'AC6']	position1:	0	position2:	8	
+AC1	 du grp	['AC1', 'AC6']	position1:	0	position2:	14	
+AC6	 du grp	['AC1', 'AC6']	position1:	1	position2:	15	
+AC2	 du grp	['AC2', 'AC7']	position1:	2	position2:	19	
+AC7	 du grp	['AC2', 'AC7']	position1:	3	position2:	17	
+AC4	 du grp	['AC4', 'AC8']	position1:	4	position2:	12	
+AC1	 du grp	['AC1', 'AC11']	position1:	8	position2:	0	
+AC1	 du grp	['AC1', 'AC11']	position1:	8	position2:	14	
+AC11	 du grp	['AC1', 'AC11']	position1:	9	position2:	16	
+AC13	 du grp	['AC3', 'AC13']	position1:	11	position2:	18	
+AC4	 du grp	['AC4', 'AC14', 'AC1']	position1:	12	position2:	4	
+AC1	 du grp	['AC4', 'AC14', 'AC1']	position1:	14	position2:	0	
+AC1	 du grp	['AC4', 'AC14', 'AC1']	position1:	14	position2:	8	
+AC6	 du grp	['AC6', 'AC11']	position1:	15	position2:	1	
+AC11	 du grp	['AC6', 'AC11']	position1:	16	position2:	9	
+AC7	 du grp	['AC7', 'AC13', 'AC2']	position1:	17	position2:	3	
+AC13	 du grp	['AC7', 'AC13', 'AC2']	position1:	18	position2:	11	
+AC2	 du grp	['AC7', 'AC13', 'AC2']	position1:	19	position2:	2	
