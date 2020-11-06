@@ -103,6 +103,8 @@ def RBH_analysor(dict):
                         else:
                             print("CHELOU")
     print(cleaned_cluster)
+    final_cluster = [x for x in cleaned_cluster if x != []]
+    print(final_cluster)
 
 
 
