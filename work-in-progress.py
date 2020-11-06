@@ -88,7 +88,7 @@ def RBH_analysor(dict):
 
     cleaned_cluster = list(k for k,_ in itertools.groupby(cluster))
 
-
+    print(cleaned_cluster)
     for cluster1 in cleaned_cluster:
         for cluster2 in cleaned_cluster:
             if cluster1 != cluster2:
@@ -97,9 +97,9 @@ def RBH_analysor(dict):
                         longueur_cluster1 = len(cluster1)
                         longueur_cluster2 = len(cluster2)
                         if longueur_cluster1 > longueur_cluster2:
-                            cleaned_cluster.remove(cluster2)
+                            cluster2.clear()
                         elif longueur_cluster1 < longueur_cluster2:
-                            cleaned_cluster.remove(cluster1)
+                            cluster1.clear()
                         else:
                             print("CHELOU")
     print(cleaned_cluster)
