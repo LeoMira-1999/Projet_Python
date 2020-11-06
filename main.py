@@ -233,4 +233,4 @@ def proteome_file_finder():
 
 ftp_refseq_proteome_finder()
 
-multi_RBH(*proteome_file_finder())
+"""multi_RBH(*proteome_file_finder())"""

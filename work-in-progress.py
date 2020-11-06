@@ -2,6 +2,7 @@ from itertools import combinations
 import os
 import pandas as pd
 import glob
+from operator import itemgetter
 
 def test_function(a,b):
 
@@ -53,44 +54,32 @@ def RBH_analysor(dict):
 
     cluster = []
     for RBH_filename1, prot_pairs1 in dict.items():
-        for RBH_filename2, prot_pairs2 in dict.items():
 
-            print(RBH_filename2)
-            print(prot_pairs2)
+        for unique_prot_pair1 in prot_pairs1:
+            temporary = []
+            for unique_prot1 in unique_prot_pair1:
 
-            if RBH_filename1 != RBH_filename2 and prot_pairs1 != prot_pairs2:
-
-
-                for unique_prot_pair2 in prot_pairs2:
-                    print(unique_prot_pair2)
-
-                    for unique_prot_pair1 in prot_pairs1:
+                for RBH_filename2, prot_pairs2 in dict.items():
 
 
+                    if RBH_filename1 != RBH_filename2:
 
-                        if unique_prot_pair1[0] in unique_prot_pair2:
-                            print(unique_prot_pair1[1],unique_prot_pair2)
-                            print(unique_prot_pair1[0],unique_prot_pair2)
-                            temporary=[]
-                            for i in range(len(unique_prot_pair2)):
-                                temporary.append(unique_prot_pair2[i])
-
-                            temporary.append(unique_prot_pair1[1])
-                            cluster.append(temporary)
-
-                        if unique_prot_pair1[1] in unique_prot_pair2:
-                            print(unique_prot_pair1[1],unique_prot_pair2)
-                            print(unique_prot_pair1[0],unique_prot_pair2)
-                            temporary=[]
-                            for i in range(len(unique_prot_pair2)):
-                                temporary.append(unique_prot_pair2[i])
-
-                            temporary.append(unique_prot_pair1[0])
-                            cluster.append(temporary)
+                        for unique_prot_pair2 in prot_pairs2:
 
 
+                            if unique_prot1 == unique_prot_pair2[0]:
+                                temporary.append(unique_prot_pair2[1])
 
-            print(cluster)
+                            elif unique_prot1 == unique_prot_pair2[1]:
+                                temporary.append(unique_prot_pair2[0])
+
+                            elif unique_prot1 not in temporary:
+                                temporary.append(unique_prot1)
+
+            cluster.append(temporary)
+    print(cluster)
+    for cluster
+
 
 
 
