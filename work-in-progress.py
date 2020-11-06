@@ -47,7 +47,7 @@ def RBH_comparator():
                 prot = prot.split()
                 cleaned_prot_paired.append(prot)
         dict_combination[filename]=cleaned_prot_paired
-    print(dict_combination)
+
     return dict_combination
 
 def RBH_analysor(dict):
@@ -57,6 +57,7 @@ def RBH_analysor(dict):
 
         for unique_prot_pair1 in prot_pairs1:
             temporary = []
+
             for unique_prot1 in unique_prot_pair1:
 
                 for RBH_filename2, prot_pairs2 in dict.items():
@@ -76,11 +77,16 @@ def RBH_analysor(dict):
                             elif unique_prot1 not in temporary:
                                 temporary.append(unique_prot1)
 
+                            temporary = list(dict.fromkeys(temporary))
+
+                            temporary = sorted(temporary)
+
             cluster.append(temporary)
     print(cluster)
-    for cluster
 
+test = [["a","b"],["a","b"],["a","b","c"],["d","c"]]
 
-
+test1 = list(set(zip(*test)))
+print(test1)
 
 RBH_analysor(RBH_comparator())
