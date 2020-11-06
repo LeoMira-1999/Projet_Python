@@ -57,7 +57,7 @@ def RBH_analysor(dict):
 
             print(RBH_filename2)
             print(prot_pairs2)
-            mini_cluster = []
+
             if RBH_filename1 != RBH_filename2 and prot_pairs1 != prot_pairs2:
 
 
@@ -68,7 +68,7 @@ def RBH_analysor(dict):
 
 
 
-                        if unique_prot_pair1[0] in unique_prot_pair2 or unique_prot_pair1[1] in unique_prot_pair2:
+                        if unique_prot_pair1[0] in unique_prot_pair2:
                             print(unique_prot_pair1[1],unique_prot_pair2)
                             print(unique_prot_pair1[0],unique_prot_pair2)
                             temporary=[]
@@ -76,11 +76,21 @@ def RBH_analysor(dict):
                                 temporary.append(unique_prot_pair2[i])
 
                             temporary.append(unique_prot_pair1[1])
-                            mini_cluster.append(temporary)
+                            cluster.append(temporary)
+
+                        if unique_prot_pair1[1] in unique_prot_pair2:
+                            print(unique_prot_pair1[1],unique_prot_pair2)
+                            print(unique_prot_pair1[0],unique_prot_pair2)
+                            temporary=[]
+                            for i in range(len(unique_prot_pair2)):
+                                temporary.append(unique_prot_pair2[i])
+
+                            temporary.append(unique_prot_pair1[0])
+                            cluster.append(temporary)
 
 
 
-            print(mini_cluster)
+            print(cluster)
 
 
 
