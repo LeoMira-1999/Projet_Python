@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import glob
 from operator import itemgetter
+import itertools
 
 def test_function(a,b):
 
@@ -82,11 +83,30 @@ def RBH_analysor(dict):
                             temporary = sorted(temporary)
 
             cluster.append(temporary)
-    print(cluster)
 
-test = [["a","b"],["a","b"],["a","b","c"],["d","c"]]
+    cluster.sort()
 
-test1 = list(set(zip(*test)))
-print(test1)
+    cleaned_cluster = list(k for k,_ in itertools.groupby(cluster))
+
+
+    for cluster1 in cleaned_cluster:
+        for cluster2 in cleaned_cluster:
+            if cluster1 != cluster2:
+                for prot in cluster1:
+                    if prot in cluster2:
+                        longueur_cluster1 = len(cluster1)
+                        longueur_cluster2 = len(cluster2)
+                        if longueur_cluster1 > longueur_cluster2:
+                            cleaned_cluster.remove(cluster2)
+                        elif longueur_cluster1 < longueur_cluster2:
+                            cleaned_cluster.remove(cluster1)
+                        else:
+                            print("CHELOU")
+    print(cleaned_cluster)
+
+
+
+
+
 
 RBH_analysor(RBH_comparator())
