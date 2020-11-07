@@ -1,36 +1,10 @@
-from itertools import combinations
 import os
-import pandas as pd
-import glob
-from operator import itemgetter
 import itertools
 
-def test_function(a,b):
-
-    print(a,b)
-
-
-def multi_RBH(*SP):
-    """
-    Arguments: can take N number of arguments
-    Returns: all the possible non redondant combinations for each especies to have a RBH
-    """
-
-    #turns all the arguments into a list
-    species = list(SP)
-
-    #creates a non redondant pair of two combination
-    comb = combinations(species,2)
-
-    #loops in the list of combination
-    for i in comb:
-
-        #launches the RBH for that combination
-        test_function(*i)
 
 def RBH_comparator():
 
-    os.system("ls RBH* > filename.txt")
+    os.system("ls reciprocal* > filename.txt")
 
     f = open("filename.txt", "r")
 
@@ -48,7 +22,7 @@ def RBH_comparator():
                 prot = prot.split()
                 cleaned_prot_paired.append(prot)
         dict_combination[filename]=cleaned_prot_paired
-
+    os.system("rm filename.txt")
     return dict_combination
 
 def RBH_analysor(dict):
@@ -88,7 +62,6 @@ def RBH_analysor(dict):
 
     cleaned_cluster = list(k for k,_ in itertools.groupby(cluster))
 
-    print(cleaned_cluster)
     for cluster1 in cleaned_cluster:
         for cluster2 in cleaned_cluster:
             if cluster1 != cluster2:
@@ -97,18 +70,34 @@ def RBH_analysor(dict):
                         longueur_cluster1 = len(cluster1)
                         longueur_cluster2 = len(cluster2)
                         if longueur_cluster1 > longueur_cluster2:
-                            cluster2.clear()
-                        elif longueur_cluster1 < longueur_cluster2:
+                            final = cluster1+cluster2
+                            final_cluster = list(dict.fromkeys(final))
+
                             cluster1.clear()
+                            cluster2.clear()
+                            cleaned_cluster.append(final_cluster)
+
+                        elif longueur_cluster1 < longueur_cluster2:
+                            final = cluster1+cluster2
+                            final_cluster = list(dict.fromkeys(final))
+
+                            cluster1.clear()
+                            cluster2.clear()
+                            cleaned_cluster.append(final_cluster)
+
                         else:
-                            print("CHELOU")
-    print(cleaned_cluster)
+                            final = cluster1+cluster2
+                            final_cluster = list(dict.fromkeys(final))
+                            
+                            cluster1.clear()
+                            cluster2.clear()
+                            cleaned_cluster.append(final_cluster)
+
+
     final_cluster = [x for x in cleaned_cluster if x != []]
-    print(final_cluster)
+
+    return final_cluster
 
 
 
-
-
-
-RBH_analysor(RBH_comparator())
+print(RBH_analysor(RBH_comparator()))

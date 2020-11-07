@@ -5,6 +5,7 @@ import pandas as pd #importing pandas to read our blasted files and retreive the
 import math #import math to use math.floor in mean_prot_length_evalue function
 from itertools import combinations # imorting combinations from itertools to generate a combination of non-redundant pairs for the multi_RBH function
 from option_fonctionelle import *
+from cluster_function import *
 import glob
 
 
@@ -233,4 +234,6 @@ def proteome_file_finder():
 
 ftp_refseq_proteome_finder()
 
-"""multi_RBH(*proteome_file_finder())"""
+multi_RBH(*proteome_file_finder())
+
+print(RBH_analysor(RBH_comparator()))

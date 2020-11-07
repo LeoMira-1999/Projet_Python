@@ -1,3 +1,0 @@
-RBH_A_B_.ids
-RBH_A_D_.ids
-RBH_B_C_.ids

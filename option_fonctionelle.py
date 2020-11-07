@@ -202,4 +202,3 @@ def ftp_refseq_proteome_finder():
     fenetre.mainloop()
     # destruction de la fenêtre après l’avoir quittée
     fenetre.destroy()
-ftp_refseq_proteome_finder()
