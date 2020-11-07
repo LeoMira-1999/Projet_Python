@@ -203,7 +203,7 @@ def bidirectional_blast(SP1, SP2):
 
 
     #remove temporary files and folders
-    os.system("rm blast_raw_1vs2.fna blast_raw_2vs1_reciprocal.fna reciprocal_hits.ids header_blast_1vs2.fa SP2.ids files_SP2_blast_reciprocal.txt  blast_best_hits_1vs2.fa temp_file.txt SP2_seq_best_hits_blast_1vs2.fa blast_reciprocal_2vs1.fa ")
+    os.system("rm blast_raw_1vs2.fna blast_raw_2vs1_reciprocal.fna reciprocal_hits.ids header_blast_2vs1.fa header_blast_1vs2.fa SP2.ids files_SP2_blast_reciprocal.txt  blast_best_hits_1vs2.fa temp_file.txt SP2_seq_best_hits_blast_1vs2.fa blast_reciprocal_2vs1.fa ")
     os.system("rm -r subset_SP2_Blast_reciprocal result_blast_2vs1_reciprocal SP1 SP2")
 
 def multi_RBH(*SP):

@@ -88,7 +88,7 @@ def RBH_analysor(dict):
                         else:
                             final = cluster1+cluster2
                             final_cluster = list(dict.fromkeys(final))
-                            
+
                             cluster1.clear()
                             cluster2.clear()
                             cleaned_cluster.append(final_cluster)
@@ -99,5 +99,5 @@ def RBH_analysor(dict):
     return final_cluster
 
 
-
+print(RBH_comparator())
 print(RBH_analysor(RBH_comparator()))
