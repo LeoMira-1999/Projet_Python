@@ -147,9 +147,8 @@ def cluster_species_redundance_remover(cluster_AC, cluster_SP):
             non_redundant_SP.append(temporary)
             index = cluster_SP.index(cluster)
             non_redundant_AC.append(cluster_AC[index])
-    print(non_redundant_SP)
-    print(non_redundant_AC)
-    print(len(non_redundant_AC), len(non_redundant_SP))
+
+    return non_redundant_AC
 
 
 

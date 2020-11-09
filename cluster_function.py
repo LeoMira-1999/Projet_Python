@@ -2,6 +2,8 @@ import os
 import itertools
 
 
+
+
 def RBH_comparator():
 
     os.system("ls reciprocal* > filename.txt")
@@ -58,7 +60,7 @@ def RBH_analysor(dict):
 
             cluster.append(temporary)
 
-    cluster.sort()
+    cluster_sorted = sorted(cluster)
 
     cleaned_cluster = list(k for k,_ in itertools.groupby(cluster))
 
@@ -98,6 +100,77 @@ def RBH_analysor(dict):
 
     return final_cluster
 
+def cluster_species_finder(list):
 
-print(RBH_comparator())
-print(RBH_analysor(RBH_comparator()))
+    cluster_organism=[]
+    for y in list:
+        cluster_organism.append(y)
+    os.system("ls *-protein.faa > filename-protein.txt")
+    file_prot = open("filename-protein.txt", "r")
+    file_name= file_prot.readlines()
+    for line in file_name:
+        line_2=line.split('.faa')
+        filename=str(line_2[0])+'.faa'
+
+#boucle qui modifie le nom des prot dans les clusters
+        for cluster1 in cluster_organism:
+            for prot in cluster1:
+                with open(filename) as file:
+                    if prot in file.read():
+                        organism_name=filename.split("-protein")
+                        cluster1.remove(prot)
+                        cluster1.append(organism_name[0])
+#je recommence parce que la boucle n'a pas tout modifié (~95%) ?!
+        for cluster1 in cluster_organism:
+            for prot in cluster1:
+                with open(filename) as file:
+                    if prot in file.read():
+                        organism_name=filename.split("-protein")
+                        cluster1.remove(prot)
+                        cluster1.append(organism_name[0])
+    os.system("rm filename-protein.txt")
+
+    return cluster_organism
+
+
+
+def cluster_species_redundance_remover(cluster_AC, cluster_SP):
+
+    non_redundant_AC = []
+    non_redundant_SP = []
+
+    for cluster in cluster_SP:
+        temporary = []
+        for SP in cluster:
+            if SP not in temporary:
+                temporary.append(SP)
+
+        if len(temporary) == len(cluster):
+            non_redundant_SP.append(temporary)
+            index = cluster_SP.index(cluster)
+            non_redundant_AC.append(cluster_AC[index])
+
+    cleaned_non_redundant_AC = list(k for k,_ in itertools.groupby(sorted(non_redundant_AC)))
+    cleaned_non_redundant_SP = list(k for k,_ in itertools.groupby(sorted(non_redundant_SP)))
+
+    return cleaned_non_redundant_AC, cleaned_non_redundant_SP
+
+
+
+
+
+
+test2 = RBH_analysor(RBH_comparator())
+
+test1 = cluster_species_finder(test2)
+
+
+
+print(test1)
+print(test2)
+print(len(test1),len(test2))
+"""
+pro1, pro2 = cluster_species_redundance_remover(test2,test1)
+
+print(pro1)
+print(pro2)"""

@@ -232,8 +232,6 @@ def proteome_file_finder():
     return faa_files
 
 
-ftp_refseq_proteome_finder()
+"""ftp_refseq_proteome_finder()
 
-multi_RBH(*proteome_file_finder())
-
-print(RBH_analysor(RBH_comparator()))
+multi_RBH(*proteome_file_finder())"""
