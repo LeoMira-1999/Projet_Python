@@ -95,13 +95,11 @@ def RBH_analysor(dict):
 
 
     final_cluster = [x for x in cleaned_cluster if x != []]
+    print("final_cluster=",final_cluster,"final_cluster printed")
 
-    return final_cluster
-
-def cluster_species_finder(list):
-
+#____________tentative_____
     cluster_organism=[]
-    for y in list:
+    for y in final_cluster:
         cluster_organism.append(y)
     os.system("ls *-protein.faa > filename-protein.txt")
     file_prot = open("filename-protein.txt", "r")
@@ -109,55 +107,19 @@ def cluster_species_finder(list):
     for line in file_name:
         line_2=line.split('.faa')
         filename=str(line_2[0])+'.faa'
-
+        print("on recherche dans:", filename,"si les prot des cluster sont là")
 #boucle qui modifie le nom des prot dans les clusters
         for cluster1 in cluster_organism:
             for prot in cluster1:
                 with open(filename) as file:
                     if prot in file.read():
                         organism_name=filename.split("-protein")
-                        cluster1.remove(prot)
-                        cluster1.append(organism_name[0])
-#je recommence parce que la boucle n'a pas tout modifié (~95%) ?!
-        for cluster1 in cluster_organism:
-            for prot in cluster1:
-                with open(filename) as file:
-                    if prot in file.read():
-                        organism_name=filename.split("-protein")
-                        cluster1.remove(prot)
-                        cluster1.append(organism_name[0])
-    os.system("rm filename-protein.txt")
+                        for index, item in enumerate(cluster1):
+                            if prot in item:
+                                cluster1[index] = organism_name[0]
 
-    return cluster_organism
+    print("cluster_organism updated=",cluster_organism,"cluster_organism updated printed")
 
 
-
-def cluster_species_redundance_remover(cluster_AC, cluster_SP):
-
-    non_redundant_AC = []
-    non_redundant_SP = []
-
-    for cluster in cluster_SP:
-        temporary = []
-        for SP in cluster:
-            if SP not in temporary:
-                temporary.append(SP)
-
-        if len(temporary) == len(cluster):
-            non_redundant_SP.append(temporary)
-            index = cluster_SP.index(cluster)
-            non_redundant_AC.append(cluster_AC[index])
-
-    return non_redundant_AC
-
-
-
-test1 = cluster_species_finder(RBH_analysor(RBH_comparator()))
-
-test2 = RBH_analysor(RBH_comparator())
-
-print(test1)
-print(test2)
-print(len(test1),len(test2))
-
-cluster_species_redundance_remover(test2,test1)
+#____________FIN_____tentative_____
+print(RBH_analysor(RBH_comparator()))
