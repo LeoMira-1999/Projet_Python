@@ -44,6 +44,7 @@ def RBH_DB_remover(list):
     for file in list:
         os.system("rm -r "+file+"")
 
+
 proteomes = proteome_file_finder()
 
 RBH_DB_creator(proteomes)
@@ -56,4 +57,5 @@ cluster_SP_nr = cluster_species_redundance_remover(cluster_AC)
 print(len(cluster_SP_nr))"""
 
 cluster_alignment(RBH_analysor(RBH_comparator()),cluster_SP_nr)
+
 RBH_DB_remover(proteomes)

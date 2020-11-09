@@ -129,17 +129,3 @@ def cluster_species_redundance_remover(cluster_AC):
     cleaned_non_redundant_SP= cluster_species_finder(cluster_AC)
 
     return cleaned_non_redundant_SP
-
-
-"""test1 = RBH_analysor(RBH_comparator())
-
-print(test1)
-
-print(len(test1))
-
-pro1 = cluster_species_redundance_remover(test1)
-
-print(pro1)
-
-print(len(pro1))
-"""
