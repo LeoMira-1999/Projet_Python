@@ -18,7 +18,7 @@ def cluster_alignment(non_redundant_AC_list,non_redundant_SP_list):
     os.system("mkdir clusters")
 
 
-    j = 0
+    j = 1
     i = 0
     for cluster in non_redundant_AC_list:
 
@@ -33,21 +33,27 @@ def cluster_alignment(non_redundant_AC_list,non_redundant_SP_list):
 
             i += 1
 
-        """os.system("cat clusters/cluster* > clusters/raw_cluster"+str(j)+".fa")
+        os.system("cat clusters/cluster* > clusters/raw_cluster"+str(j)+".fa")
 
         j += 1
 
-    os.system("rm clusters/cluster*")"""
+        os.system("rm clusters/cluster*")
 
-"""RBH_DB_creator(proteome_file_finder())"""
+def RBH_DB_remover(list):
+
+    for file in list:
+        os.system("rm -r "+file+"")
+
+proteomes = proteome_file_finder()
+
+RBH_DB_creator(proteomes)
 
 cluster_AC = RBH_analysor(RBH_comparator())
-cluster_SP = cluster_species_finder(cluster_AC)
 
-cluster_AC_nr, cluster_SP_nr = cluster_species_redundance_remover(cluster_AC,cluster_SP)
+cluster_SP_nr = cluster_species_redundance_remover(cluster_AC)
 
-print(cluster_AC_nr)
-print(cluster_SP_nr)
-print(len(cluster_AC_nr),len(cluster_SP_nr))
+"""print(cluster_SP_nr)
+print(len(cluster_SP_nr))"""
 
-cluster_alignment(cluster_AC_nr,cluster_SP_nr)
+cluster_alignment(RBH_analysor(RBH_comparator()),cluster_SP_nr)
+RBH_DB_remover(proteomes)

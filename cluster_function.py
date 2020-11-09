@@ -98,7 +98,9 @@ def RBH_analysor(dict):
 
     final_cluster = [x for x in cleaned_cluster if x != []]
 
-    return final_cluster
+    cleaned_final_cluster = list(k for k,_ in itertools.groupby(sorted(final_cluster)))
+
+    return cleaned_final_cluster
 
 def cluster_species_finder(list):
 
@@ -122,41 +124,22 @@ def cluster_species_finder(list):
 
     return list
 
+def cluster_species_redundance_remover(cluster_AC):
+
+    cleaned_non_redundant_SP= cluster_species_finder(cluster_AC)
+
+    return cleaned_non_redundant_SP
 
 
-def cluster_species_redundance_remover(cluster_AC, cluster_SP):
+"""test1 = RBH_analysor(RBH_comparator())
 
-    non_redundant_AC = []
-    non_redundant_SP = []
-
-    for cluster in cluster_SP:
-        temporary = []
-        for SP in cluster:
-            if SP not in temporary:
-                temporary.append(SP)
-
-        if len(temporary) == len(cluster):
-            non_redundant_SP.append(temporary)
-            index = cluster_SP.index(cluster)
-            non_redundant_AC.append(cluster_AC[index])
-
-    cleaned_non_redundant_AC = list(k for k,_ in itertools.groupby(sorted(non_redundant_AC)))
-    cleaned_non_redundant_SP = list(k for k,_ in itertools.groupby(sorted(non_redundant_SP)))
-
-    return cleaned_non_redundant_AC, cleaned_non_redundant_SP
-
-
-test2 = RBH_analysor(RBH_comparator())
-
-test1 = cluster_species_finder(RBH_analysor(RBH_comparator()))
-
-
-
-print(test2)
 print(test1)
-print(len(test1),len(test2))
-"""
-pro1, pro2 = cluster_species_redundance_remover(test2,test1)
+
+print(len(test1))
+
+pro1 = cluster_species_redundance_remover(test1)
 
 print(pro1)
-print(pro2)"""
+
+print(len(pro1))
+"""

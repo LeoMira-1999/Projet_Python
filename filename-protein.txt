@@ -1,5 +1,0 @@
-Acetobacter-fallax-protein.faa
-Afifella-aestuarii-protein.faa
-Clostridium-arbusti-protein.faa
-Salmonella-bongori-protein.faa
-Streptomyces-olivoverticillatus-protein.faa
