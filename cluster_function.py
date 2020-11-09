@@ -102,35 +102,25 @@ def RBH_analysor(dict):
 
 def cluster_species_finder(list):
 
-    cluster_organism=[]
-    for y in list:
-        cluster_organism.append(y)
     os.system("ls *-protein.faa > filename-protein.txt")
     file_prot = open("filename-protein.txt", "r")
     file_name= file_prot.readlines()
     for line in file_name:
         line_2=line.split('.faa')
         filename=str(line_2[0])+'.faa'
-
 #boucle qui modifie le nom des prot dans les clusters
-        for cluster1 in cluster_organism:
+        for cluster1 in list:
             for prot in cluster1:
                 with open(filename) as file:
                     if prot in file.read():
                         organism_name=filename.split("-protein")
-                        cluster1.remove(prot)
-                        cluster1.append(organism_name[0])
-#je recommence parce que la boucle n'a pas tout modifié (~95%) ?!
-        for cluster1 in cluster_organism:
-            for prot in cluster1:
-                with open(filename) as file:
-                    if prot in file.read():
-                        organism_name=filename.split("-protein")
-                        cluster1.remove(prot)
-                        cluster1.append(organism_name[0])
+                        for index, item in enumerate(cluster1):
+                            if prot in item:
+                                cluster1[index] = organism_name[0]
+
     os.system("rm filename-protein.txt")
 
-    return cluster_organism
+    return list
 
 
 
@@ -156,18 +146,14 @@ def cluster_species_redundance_remover(cluster_AC, cluster_SP):
     return cleaned_non_redundant_AC, cleaned_non_redundant_SP
 
 
-
-
-
-
 test2 = RBH_analysor(RBH_comparator())
 
-test1 = cluster_species_finder(test2)
+test1 = cluster_species_finder(RBH_analysor(RBH_comparator()))
 
 
 
-print(test1)
 print(test2)
+print(test1)
 print(len(test1),len(test2))
 """
 pro1, pro2 = cluster_species_redundance_remover(test2,test1)
