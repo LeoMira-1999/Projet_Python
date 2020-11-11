@@ -6,6 +6,9 @@ from datetime import datetime
 import numpy as np
 import random
 from tkinter import *
+from main import *
+from alignment import *
+
 #__________________
 def proteome_file_finder():
         faa_files =[]
@@ -28,6 +31,20 @@ def select_genome():
     print(faa_files_selected)
     return faa_files_selected
 
+def launch():
+    multi_RBH(*select_genome())
+
+    proteomes = proteome_file_finder()
+
+    RBH_DB_creator(proteomes)
+
+
+    cluster_AC_nr, cluster_SP_nr = cluster_species_redundance_remover(RBH_analysor(RBH_comparator()), cluster_species_finder(RBH_analysor(RBH_comparator())))
+
+    cluster_alignment(cluster_AC_nr,cluster_SP_nr)
+
+    RBH_DB_remover(proteomes)
+
 fenetre = Tk()
 text = Text(fenetre)
 label = Label( fenetre, text='CHOICE YOUR GENOMES', relief=RAISED )
@@ -42,7 +59,7 @@ for i, value in enumerate(proteome_file_finder()):
 
     cbs[value].grid(row=i+2, column=0)
 
-BoutonEntre = Button(fenetre, text = 'LANCER', command = fenetre.destroy)
+BoutonEntre = Button(fenetre, text = 'LANCER', command = launch)
 BoutonEntre.grid(row=0, column=1)
 BoutonQuitter = Button(fenetre, text = 'QUITTER', command = fenetre.destroy)
 BoutonQuitter.grid(row=1, column=1)

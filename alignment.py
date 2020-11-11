@@ -1,6 +1,7 @@
 from main import *
 from cluster_function import *
 import os
+import glob
 
 def RBH_DB_creator(list):
 
@@ -37,6 +38,8 @@ def cluster_alignment(non_redundant_AC_list,non_redundant_SP_list):
 
         os.system("rm clusters/cluster*")
 
+
+
 def RBH_DB_remover(list):
 
     for file in list:
@@ -44,13 +47,13 @@ def RBH_DB_remover(list):
         os.system("rm -r "+filename[0]+"")
 
 
-"""proteomes = proteome_file_finder()
-
-RBH_DB_creator(proteomes)"""
 
 
-cluster_AC_nr, cluster_SP_nr = cluster_species_redundance_remover(RBH_analysor(RBH_comparator()), cluster_species_finder(RBH_analysor(RBH_comparator())))
+"""raw_clusters =[]
+for file in glob.glob("clusters/raw*"):
+    filename = file.split("clusters/")
+    raw_clusters.append(filename[1])
+print(raw_clusters)
 
-cluster_alignment(cluster_AC_nr,cluster_SP_nr)
-
-"""RBH_DB_remover(proteomes)"""
+for cluster in raw_clusters:
+    os.system()"""
