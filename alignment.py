@@ -42,7 +42,6 @@ def cluster_alignment(non_redundant_AC_list,non_redundant_SP_list):
     for file in glob.glob("clusters/raw*"):
         filename = file.split("clusters/")
         raw_clusters.append(filename[1])
-    print(raw_clusters)
 
     os.system("mkdir aligned_clusters")
     for cluster in raw_clusters:
