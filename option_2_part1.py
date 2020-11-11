@@ -32,6 +32,7 @@ def select_genome():
     return faa_files_selected
 
 def launch():
+
     multi_RBH(*select_genome())
 
     proteomes = proteome_file_finder()
@@ -47,7 +48,7 @@ def launch():
 
 fenetre = Tk()
 text = Text(fenetre)
-label = Label( fenetre, text='CHOICE YOUR GENOMES', relief=RAISED )
+label = Label( fenetre, text='CHOOSE YOUR GENOMES', relief=RAISED )
 label.grid()
 
 
