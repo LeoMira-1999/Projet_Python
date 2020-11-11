@@ -124,8 +124,20 @@ def cluster_species_finder(list):
 
     return list
 
-def cluster_species_redundance_remover(cluster_AC):
+def cluster_species_redundance_remover(cluster_AC, cluster_SP):
 
-    cleaned_non_redundant_SP= cluster_species_finder(cluster_AC)
+    nr_AC = []
+    nr_SP = []
 
-    return cleaned_non_redundant_SP
+    for counter_cluster, cluster in enumerate(cluster_SP):
+        temporary_cluster_SP = []
+        temporary_cluster_AC = []
+        for counter_SP, SP in enumerate(cluster):
+            if SP not in temporary_cluster_SP:
+                temporary_cluster_SP.append(SP)
+                temporary_cluster_AC.append(cluster_AC[counter_cluster][counter_SP])
+        nr_AC.append(temporary_cluster_AC)
+        nr_SP.append(temporary_cluster_SP)
+
+
+    return nr_AC, nr_SP
