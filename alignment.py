@@ -38,6 +38,17 @@ def cluster_alignment(non_redundant_AC_list,non_redundant_SP_list):
 
         os.system("rm clusters/cluster*")
 
+    raw_clusters =[]
+    for file in glob.glob("clusters/raw*"):
+        filename = file.split("clusters/")
+        raw_clusters.append(filename[1])
+    print(raw_clusters)
+
+    os.system("mkdir aligned_clusters")
+    for cluster in raw_clusters:
+        cleaned_cluster = cluster.split("raw_")
+        os.system("mafft --auto --quiet clusters/"+cluster+" > aligned_clusters/"+cleaned_cluster[1]+"")
+
 
 
 def RBH_DB_remover(list):
@@ -45,15 +56,3 @@ def RBH_DB_remover(list):
     for file in list:
         filename = file.split("-protein.faa")
         os.system("rm -r "+filename[0]+"")
-
-
-
-
-"""raw_clusters =[]
-for file in glob.glob("clusters/raw*"):
-    filename = file.split("clusters/")
-    raw_clusters.append(filename[1])
-print(raw_clusters)
-
-for cluster in raw_clusters:
-    os.system()"""
