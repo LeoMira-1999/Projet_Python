@@ -1,6 +1,7 @@
 from alignment import *
 import glob
-
+from itertools import chain
+import reprlib
 def cluster_reader():
 
     clusters_dict = {}
@@ -30,11 +31,10 @@ def cluster_reader():
                         temporary_dict[temporary_sp[-1]].append(line)
 
             for SP, seq in temporary_dict.items():
-                for sequences in seq:
-                    if SP not in clusters_dict:
-                        clusters_dict[SP] = [sequences]
-                    else:
-                        clusters_dict[SP].append(sequences)
+                if SP not in clusters_dict:
+                    clusters_dict[SP] = [''.join(seq)]
+                else:
+                    clusters_dict[SP].append(''.join(seq))
 
     proteome_sp_real = []
     for raw_names in glob.glob("*.faa"):
@@ -42,19 +42,25 @@ def cluster_reader():
         names = cleaned_names[0].split("-")
         proteome_sp_real.append(names[0])
 
-    print(proteome_sp_real)
-    print(total_sp)
     proteome_sp = []
     for sp in total_sp:
         if sp not in proteome_sp:
             proteome_sp.append(sp)
 
-    print(proteome_sp)
-    for species in proteome_sp:
-        print(total_sp.count(species))
+    odd_sp =list(set(proteome_sp)-set(proteome_sp_real))
 
-    for key in clusters_dict.keys():
-        print(key)
 
+    for odd in odd_sp:
+        del clusters_dict[odd]
+
+
+    cleaned_clusters_dict = {}
+
+    seqs = []
+    for sp in proteome_sp_real:
+        seqs.clear()
+        seqs.append("".join(clusters_dict[sp]))
+        cleaned_clusters_dict[sp]=seqs
+    print(reprlib.repr(cleaned_clusters_dict))
 
 cluster_reader()
