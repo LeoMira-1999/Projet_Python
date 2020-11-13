@@ -70,7 +70,6 @@ def cluster_reader():
     total_sp = []
     for file in glob.glob("aligned_clusters/processed_*"):
         cleaned_file = file.split("aligned_clusters/")
-        print(cleaned_file)
         with open("aligned_clusters/"+cleaned_file[1], "r") as cluster_file:
             lines = cluster_file.readlines()
             lines = [w.replace('\n', '') for w in lines]
@@ -122,11 +121,13 @@ def cluster_reader():
         seqs.append("".join(clusters_dict[sp]))
 
         cleaned_clusters_dict[sp]=seqs
-    print(reprlib.repr(cleaned_clusters_dict))
 
     with open("final_super_alignment.fa" , "a") as file:
+
+        """file.write(""+str(len(proteome_sp_real))+" "+str(len("".join(cleaned_clusters_dict[proteome_sp[0]])))+"\n")"""
         for SP, seq in cleaned_clusters_dict.items():
             for sequence in seq:
+
                 file.write(">"+SP+"\n"+sequence+"\n")
 
 
