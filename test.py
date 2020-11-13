@@ -1,4 +1,4 @@
-from ete3 import Tree
-
-t = Tree("test/final_super_alignment.fa.treefile")
-t.render("test.png")
+from Bio import Phylo
+trees = Phylo.read('final_super_alignment.phy_phyml_tree.txt', 'newick')
+print(trees)
+Phylo.draw(trees)

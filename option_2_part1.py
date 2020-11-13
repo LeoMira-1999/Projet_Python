@@ -8,6 +8,7 @@ import random
 from tkinter import *
 from main import *
 from alignment import *
+from super_alignment import *
 
 #__________________
 def proteome_file_finder():
@@ -45,6 +46,10 @@ def launch():
     cluster_alignment(cluster_AC_nr,cluster_SP_nr)
 
     RBH_DB_remover(proteomes)
+
+    gap_filer()
+
+    cluster_reader()
 
 fenetre = Tk()
 text = Text(fenetre)

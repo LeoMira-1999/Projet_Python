@@ -6,7 +6,7 @@ import glob
 def RBH_DB_creator(list):
 
     for filename in list:
-        print(filename)
+
         SP = filename.split("-protein.faa")
 
         os.system("makeblastdb -in "+filename+" -parse_seqids -blastdb_version 5 -dbtype prot -out "+SP[0]+"/"+SP[0]+"")
@@ -46,7 +46,8 @@ def cluster_alignment(non_redundant_AC_list,non_redundant_SP_list):
     os.system("mkdir aligned_clusters")
     for cluster in raw_clusters:
         cleaned_cluster = cluster.split("raw_")
-        os.system("mafft --auto --quiet clusters/"+cluster+" > aligned_clusters/"+cleaned_cluster[1]+"")
+
+        os.system("mafft --anysymbol --auto --quiet clusters/"+cluster+" > aligned_clusters/"+cleaned_cluster[1]+"")
 
 
 
