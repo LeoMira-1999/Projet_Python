@@ -130,5 +130,3 @@ def cluster_reader():
 
     trees = Phylo.read('RAxML_bipartitions.final_tree', 'newick')
     Phylo.draw(trees)
-
-cluster_reader()
