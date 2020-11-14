@@ -9,6 +9,7 @@ from tkinter import *
 from main import *
 from alignment import *
 from super_alignment import *
+from option_fonctionelle import *
 
 #__________________
 def proteome_file_finder():
@@ -50,6 +51,8 @@ def launch():
     gap_filer()
 
     cluster_reader()
+
+ftp_refseq_proteome_finder()
 
 fenetre = Tk()
 text = Text(fenetre)

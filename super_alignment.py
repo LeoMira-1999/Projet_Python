@@ -116,23 +116,19 @@ def cluster_reader():
 
     cleaned_clusters_dict = {}
 
-    seqs = []
-    for sp in proteome_sp_real:
-        seqs.clear()
-        seqs.append("".join(clusters_dict[sp]))
-
-        cleaned_clusters_dict[sp]=seqs
+    for sp, seqs in clusters_dict.items():
+        cleaned_clusters_dict[sp]="".join(seqs)
 
     with open("final_super_alignment.phy" , "a") as file:
 
-        file.write(""+str(len(proteome_sp_real))+" "+str(len("".join(cleaned_clusters_dict[proteome_sp[0]])))+"\n")
+        """file.write(""+str(len(proteome_sp_real))+" "+str(len("".join(cleaned_clusters_dict[proteome_sp[0]])))+"\n")"""
         for SP, seq in cleaned_clusters_dict.items():
-            for sequence in seq:
 
-                file.write(""+SP+"\n"+sequence+"\n")
+            file.write(">"+SP+"\n"+seq+"\n")
 
-    os.system("phyml -i final_super_alignment.phy -d aa --quiet")
+    os.system("raxmlHPC -s final_super_alignment.phy -n final_tree -f a -m PROTCATBLOSUM62 -x 2 -N 10 -p 1")
 
-
-    trees = Phylo.read('final_super_alignment.phy_phyml_tree.txt', 'newick')
+    trees = Phylo.read('RAxML_bipartitions.final_tree', 'newick')
     Phylo.draw(trees)
+
+cluster_reader()
