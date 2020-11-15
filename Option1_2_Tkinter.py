@@ -76,17 +76,15 @@ def list_file_faa():
             organism_dico[value]['variable'] = organism_dico[value].var
             organism_dico[value].pack(padx=100, pady=1)
             list_already.append(value)
-    print(organism_dico)
-list_file_faa()
 
 #creation of buttons the first tab
-BoutonEntre = Button(onglet1, text = 'LANCER', command = launch)
+BoutonEntre = Button(onglet1, text = 'Launch', command = launch)
 BoutonEntre.pack(padx=100, pady=10)
-boutonRefresh = Button(onglet1, text = " RAFRAICHIR", command = list_file_faa)
+boutonRefresh = Button(onglet1, text = "Refresh", command = list_file_faa)
 boutonRefresh.pack()
-BoutonQuitter = Button(onglet1, text = 'QUITTER', command = window.destroy)
+BoutonQuitter = Button(onglet1, text = 'Quit', command = window.destroy)
 BoutonQuitter.pack(padx=100, pady=10)
-
+list_file_faa()
 
 #option_1_:__ADD_Genome_From_The_Web
 FTP_HOST = "ftp.ncbi.nlm.nih.gov"
@@ -235,10 +233,6 @@ class Organism_refseq(Frame):
 
         self.entry.pack(padx=100, pady=1)
         self.lbox.pack(padx=100, pady=1)
-        def printer(event):
-            print("ta clicker sur=",self.lbox.get(self.lbox.curselection()))
-        self.lbox.bind("<<ListboxSelect>>", printer)
-
     # Function for updating the list/doing the search.
     # It needs to be called here to populate the listbox.
         self.update_list()
