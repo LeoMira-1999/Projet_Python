@@ -65,14 +65,6 @@ onglet_system.add(onglet2, text='add genome')      # name of the first tab
 label = Label( onglet1, text='CHOOSE YOUR GENOMES', relief=RAISED ) #label in the first tab
 label.pack()
 
-#creation of buttons the first tab
-BoutonEntre = Button(onglet1, text = 'LANCER', command = launch)
-BoutonEntre.pack(padx=100, pady=10)
-boutonRefresh = Button(onglet1, text = " RAFRAICHIR", command = list_file_faa)
-boutonRefresh.pack()
-BoutonQuitter = Button(onglet1, text = 'QUITTER', command = window.destroy)
-BoutonQuitter.pack(padx=100, pady=10)
-
 #creation of checkbutton on the first tab
 list_already=[]
 organism_dico = dict()
@@ -86,6 +78,15 @@ def list_file_faa():
             list_already.append(value)
     print(organism_dico)
 list_file_faa()
+
+#creation of buttons the first tab
+BoutonEntre = Button(onglet1, text = 'LANCER', command = launch)
+BoutonEntre.pack(padx=100, pady=10)
+boutonRefresh = Button(onglet1, text = " RAFRAICHIR", command = list_file_faa)
+boutonRefresh.pack()
+BoutonQuitter = Button(onglet1, text = 'QUITTER', command = window.destroy)
+BoutonQuitter.pack(padx=100, pady=10)
+
 
 #option_1_:__ADD_Genome_From_The_Web
 FTP_HOST = "ftp.ncbi.nlm.nih.gov"
