@@ -52,14 +52,11 @@ def bidirectional_blast(SP1, SP2):
     Arguments: species 1 file name and species 2 file name
     Returns: a document where you hava the AC of each reciprocal hits
     """
-
+    species_name_1 = SP1.split("-protein.faa")
+    species_name_2 = SP2.split("-protein.faa")
     #use bash seqkit program to separate species 1 into 100 subfiles, in order to handle proteomes and minimise RAM usage
     #these files will be stored in a directory called subset_SP1
     os.system("./seqkit split "+SP1+" --by-part 100 --out-dir subset_SP1/")
-
-    #create a database for SP1 and SP2 where they will be store in a directories SP2 and SP1 respectively
-    os.system("makeblastdb -in "+SP2+" -parse_seqids -blastdb_version 5 -dbtype prot -out SP2/SP2")
-    os.system("makeblastdb -in "+SP1+" -parse_seqids -blastdb_version 5 -dbtype prot -out SP1/SP1")
 
     #create a file that has the names of each files from subset_SP1
     os.system("ls subset_SP1/ > files_SP1.txt")
@@ -76,8 +73,6 @@ def bidirectional_blast(SP1, SP2):
     #calculate the evalue for the first species
     evalue = mean_prot_length_evalue(SP1)
 
-    print("EVALUE SP1: "+str(evalue))
-
     #setting a counter to 0
     i = 0
 
@@ -89,7 +84,7 @@ def bidirectional_blast(SP1, SP2):
 
         #launching our blastp with each file name, using our database of our second species, format with tabular and comment lines, count the number of cpu cores the computer has to maximise efficiency
         #each of the results will be stored in the directory result_blast_1vs2 where the will be labled with the same number of the query file
-        blastp_SP1_vs_SP2 = "blastp -query subset_SP1/"+str(line)+" -db SP2/SP2 -outfmt 7 -evalue 1e-"+evalue+" -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_1vs2/blast_raw_1vs2_0"+str(i+1)+".fa"
+        blastp_SP1_vs_SP2 = "blastp -query subset_SP1/"+str(line)+" -db "+species_name_2[0]+"/"+species_name_2[0]+" -outfmt 7 -evalue 1e-"+evalue+" -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_1vs2/blast_raw_1vs2_0"+str(i+1)+".fa"
 
         #launch command for ourblastp
         os.system(blastp_SP1_vs_SP2)
@@ -130,7 +125,7 @@ def bidirectional_blast(SP1, SP2):
         column_ids_seq2.to_csv(f, sep='\t',header=False, index=False)
 
     #retreive accession sequences from the SP2.ids from database SP2 to later be blasted
-    SP2_blast_hits_seq_query = "blastdbcmd -entry_batch SP2.ids -db SP2/SP2 -dbtype prot -out SP2_seq_best_hits_blast_1vs2.fa"
+    SP2_blast_hits_seq_query = "blastdbcmd -entry_batch SP2.ids -db "+species_name_2[0]+"/"+species_name_2[0]+" -dbtype prot -out SP2_seq_best_hits_blast_1vs2.fa"
 
     #launch command
     os.system(SP2_blast_hits_seq_query)
@@ -153,7 +148,6 @@ def bidirectional_blast(SP1, SP2):
     #calculate evalue for the mean length of our best hits file
     evalue = mean_prot_length_evalue("SP2_seq_best_hits_blast_1vs2.fa")
 
-    print("EVALUE SP1 BEST HITS: "+str(evalue))
     #start counter
     i = 0
 
@@ -165,7 +159,7 @@ def bidirectional_blast(SP1, SP2):
 
         #launching our blastp with each file name, using our database of our second species, format with tabular and comment lines, count the number of cpu cores the computer has to maximise efficiency
         #each of the results will be stored in the directory result_blast_2vs1 where the will be labled with the same number of the query file
-        blastp_SP1_vs_SP2 = "blastp -query subset_SP2_Blast_reciprocal/"+str(line)+" -db SP1/SP1 -outfmt 7 -evalue 1e-"+evalue+" -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
+        blastp_SP1_vs_SP2 = "blastp -query subset_SP2_Blast_reciprocal/"+str(line)+" -db "+species_name_1[0]+"/"+species_name_1[0]+" -outfmt 7 -evalue 1e-"+evalue+" -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
 
         #launch command
         os.system(blastp_SP1_vs_SP2)
@@ -204,7 +198,7 @@ def bidirectional_blast(SP1, SP2):
 
     #remove temporary files and folders
     os.system("rm blast_raw_1vs2.fna blast_raw_2vs1_reciprocal.fna reciprocal_hits.ids header_blast_2vs1.fa header_blast_1vs2.fa SP2.ids files_SP2_blast_reciprocal.txt  blast_best_hits_1vs2.fa temp_file.txt SP2_seq_best_hits_blast_1vs2.fa blast_reciprocal_2vs1.fa ")
-    os.system("rm -r subset_SP2_Blast_reciprocal result_blast_2vs1_reciprocal SP1 SP2")
+    os.system("rm -r subset_SP2_Blast_reciprocal result_blast_2vs1_reciprocal")
 
 def multi_RBH(*SP):
     """
