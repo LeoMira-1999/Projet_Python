@@ -65,22 +65,27 @@ onglet_system.add(onglet2, text='add genome')      # name of the first tab
 label = Label( onglet1, text='CHOOSE YOUR GENOMES', relief=RAISED ) #label in the first tab
 label.pack()
 
-#creation of checkbutton on the first tab
-organism_dico = dict()
-for i, value in enumerate(proteome_file_finder()):
-    organism_dico[value] = Checkbutton(onglet1, text=value, onvalue=True, offvalue=False, command=select_genome)
-    organism_dico[value].var = BooleanVar(onglet1, value=False)
-    organism_dico[value]['variable'] = organism_dico[value].var
-    organism_dico[value].pack(padx=100, pady=1)
-
 #creation of buttons the first tab
 BoutonEntre = Button(onglet1, text = 'LANCER', command = launch)
 BoutonEntre.pack(padx=100, pady=10)
-boutonRefresh = Button(onglet1, text = " RAFRAICHIR", command = window.destroy)
+boutonRefresh = Button(onglet1, text = " RAFRAICHIR", command = list_file_faa)
 boutonRefresh.pack()
 BoutonQuitter = Button(onglet1, text = 'QUITTER', command = window.destroy)
 BoutonQuitter.pack(padx=100, pady=10)
 
+#creation of checkbutton on the first tab
+list_already=[]
+organism_dico = dict()
+def list_file_faa():
+    for i, value in enumerate(proteome_file_finder()):
+        if value not in list_already:
+            organism_dico[value] = Checkbutton(onglet1, text=value, onvalue=True, offvalue=False, command=select_genome)
+            organism_dico[value].var = BooleanVar(onglet1, value=False)
+            organism_dico[value]['variable'] = organism_dico[value].var
+            organism_dico[value].pack(padx=100, pady=1)
+            list_already.append(value)
+    print(organism_dico)
+list_file_faa()
 
 #option_1_:__ADD_Genome_From_The_Web
 FTP_HOST = "ftp.ncbi.nlm.nih.gov"
@@ -229,7 +234,7 @@ class Organism_refseq(Frame):
 
         self.entry.pack(padx=100, pady=1)
         self.lbox.pack(padx=100, pady=1)
-        def printer(self,event):
+        def printer(event):
             print("ta clicker sur=",self.lbox.get(self.lbox.curselection()))
         self.lbox.bind("<<ListboxSelect>>", printer)
 
