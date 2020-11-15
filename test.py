@@ -1,4 +1,5 @@
-from Bio import Phylo
-trees = Phylo.read('final_super_alignment.phy_phyml_tree.txt', 'newick')
-print(trees)
-Phylo.draw(trees)
+t1 = ['Acidianus', 'Desulfurococcus', 'Ignicoccus']
+t2 = ['Ignicoccus', 'Desulfurococcus', 'Acidianus']
+
+missing_sp = list(set(t1)-set(t2))
+print(missing_sp)

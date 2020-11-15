@@ -4,13 +4,14 @@ from itertools import chain
 import reprlib
 from Bio import Phylo
 
-def gap_filer():
+def gap_filer(proteomes):
 
     proteome_sp_real = []
-    for raw_names in glob.glob("*.faa"):
+    for raw_names in proteomes:
         cleaned_names = raw_names.split("-protein.faa")
         names = cleaned_names[0].split("-")
         proteome_sp_real.append(names[0])
+
 
     for file in glob.glob("aligned_clusters/*"):
         cleaned_file = file.split("aligned_clusters/")
@@ -64,7 +65,7 @@ def gap_filer():
 
 
 
-def cluster_reader():
+def cluster_reader(proteomes):
 
     clusters_dict = {}
     species = []
@@ -97,7 +98,7 @@ def cluster_reader():
                     clusters_dict[SP].append(''.join(seq))
 
     proteome_sp_real = []
-    for raw_names in glob.glob("*.faa"):
+    for raw_names in proteomes:
         cleaned_names = raw_names.split("-protein.faa")
         names = cleaned_names[0].split("-")
         proteome_sp_real.append(names[0])
@@ -119,14 +120,14 @@ def cluster_reader():
     for sp, seqs in clusters_dict.items():
         cleaned_clusters_dict[sp]="".join(seqs)
 
-    with open("final_super_alignment.phy" , "a") as file:
+    with open("final_super_alignment.afa" , "a") as file:
 
         """file.write(""+str(len(proteome_sp_real))+" "+str(len("".join(cleaned_clusters_dict[proteome_sp[0]])))+"\n")"""
         for SP, seq in cleaned_clusters_dict.items():
 
             file.write(">"+SP+"\n"+seq+"\n")
 
-    os.system("raxmlHPC -s final_super_alignment.phy -n final_tree -f a -m PROTCATBLOSUM62 -x 2 -N 10 -p 1")
+    os.system("raxmlHPC -s final_super_alignment.afa -n final_tree -f a -m PROTCATBLOSUM62 -x 2 -N 10 -p 1")
 
     trees = Phylo.read('RAxML_bipartitions.final_tree', 'newick')
     Phylo.draw(trees)
