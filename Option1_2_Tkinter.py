@@ -8,6 +8,7 @@ from tkinter import *
 from tkinter import ttk
 from main import *
 from alignment import *
+from super_alignment import *
 from option_fonctionelle import *
 
 #__________________
@@ -36,15 +37,19 @@ def select_genome(): #function to select_genome for blast
 
 def launch():
 
-    multi_RBH(*select_genome())
-
-    proteomes = proteome_file_finder()
+    proteomes = select_genome()
 
     RBH_DB_creator(proteomes)
+
+    multi_RBH(*proteomes)
 
     cluster_AC_nr, cluster_SP_nr = cluster_species_redundance_remover(RBH_analysor(RBH_comparator()), cluster_species_finder(RBH_analysor(RBH_comparator())))
 
     cluster_alignment(cluster_AC_nr,cluster_SP_nr)
+
+    gap_filer(proteomes)
+
+    cluster_reader(proteomes)
 
     RBH_DB_remover(proteomes)
 
