@@ -11,15 +11,6 @@ from alignment import *
 from super_alignment import *
 from option_fonctionelle import *
 
-#__________________
-def proteome_file_finder():
-        faa_files =[]
-        for file in glob.glob("*.faa"):
-            faa_files.append(file)
-            print(faa_files)
-        return faa_files
-    #___________________
-
 def select_genome():
     faa_files_selected=[]
     global cbs
