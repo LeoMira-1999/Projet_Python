@@ -10,7 +10,6 @@ from main import *
 from alignment import *
 from super_alignment import *
 from option_fonctionelle import *
-
 #__________________
 def proteome_file_finder(): #function to create a list of files.faa
         faa_files =[]
