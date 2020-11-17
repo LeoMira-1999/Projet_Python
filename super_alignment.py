@@ -1,17 +1,29 @@
-from alignment import *
-import glob
-from itertools import chain
-from Bio import Phylo
+#!/usr/bin/python3
+import glob #import glob to read files
+from Bio import Phylo #import phylo from bio to draw a phylogenetic tree
 
 def gap_filer(proteomes):
+    """
+    Arguments: Takes the list of proteomes
+    Results: fills the aligned clusters missing proteomes with gaps
+    """
 
+    #create an empty list that stores the family names of the proteomes
     proteome_sp_real = []
+
+    #retreive each proteome from proteomes
     for raw_names in proteomes:
+
+        #remove -protein.faa
         cleaned_names = raw_names.split("-protein.faa")
+
+        #take only the family name
         names = cleaned_names[0].split("-")
+
+        #append the family name to the list of family names
         proteome_sp_real.append(names[0])
 
-
+    
     for file in glob.glob("aligned_clusters/*"):
         cleaned_file = file.split("aligned_clusters/")
 

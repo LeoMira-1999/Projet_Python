@@ -22,7 +22,7 @@ def RBH_DB_creator(list):
 def cluster_alignment(non_redundant_AC_list,non_redundant_SP_list):
     """
     Arguments: list of non redundant AC and list of non redundant species from the cluster AC
-    Returns:
+    Result: create a file of the aligned cluster using MAFFT
     """
 
     #create a directory to store the clusters
@@ -91,7 +91,7 @@ def cluster_alignment(non_redundant_AC_list,non_redundant_SP_list):
 def RBH_DB_remover(list):
     """
     Arguments: takes in a list of the proteome files
-    Returns: remove databases for each proteome
+    Results: remove databases for each proteome
     """
 
     #for each file in list
