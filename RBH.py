@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-import os #importing os to let us use bash for a later use in blast+ programs
+import os #importing os to let us use bash
 import multiprocessing #importing multiprocessing will let us count the amount of cpu cores for an optimised use and faster processing of blastp
 import pandas as pd #importing pandas to read our blasted files and retreive the information needed
 import math #import math to use math.floor in mean_prot_length_evalue function
 from itertools import combinations # imorting combinations from itertools to generate a combination of non-redundant pairs for the multi_RBH function
-from cluster_function import *
-import glob
+import glob #import glob to read files
 
 
 def mean_prot_length_evalue(SP):
@@ -25,7 +24,6 @@ def mean_prot_length_evalue(SP):
     #get second line
     line = lines[1]
 
-
     #replace each \n with nothing
     line = line.replace("\n","")
 
@@ -34,9 +32,11 @@ def mean_prot_length_evalue(SP):
 
     #use bash to remove the previously created file
     os.system("rm SP_mean_prot_length.txt")
-    print(line[6])
+
+    #remove the anglosaxon thousand coma
     mean_aa = "".join(line[6].split(","))
-    #calculate our evalue from the mean protein length located on the 6th separator and divide it by 100
+
+    #calculate our evalue from the mean protein length located on the 7th separator and divide it by 100
     #multiply this ration by 20 in order to have a dynamic evalue where every 100 amino acids we add 20 to the evalue
     evalue = (float(mean_aa)/100)*20
 
@@ -51,8 +51,12 @@ def bidirectional_blast(SP1, SP2):
     Arguments: species 1 file name and species 2 file name
     Returns: a document where you hava the AC of each reciprocal hits
     """
+    # retreive species 1 name
     species_name_1 = SP1.split("-protein.faa")
+
+    # retreive species 1 name
     species_name_2 = SP2.split("-protein.faa")
+
     #use bash seqkit program to separate species 1 into 100 subfiles, in order to handle proteomes and minimise RAM usage
     #these files will be stored in a directory called subset_SP1
     os.system("./seqkit split "+SP1+" --by-part 100 --out-dir subset_SP1/")
@@ -102,6 +106,7 @@ def bidirectional_blast(SP1, SP2):
     processing_1 = "echo \"query acc.ver\tsubject acc.ver\t% identity\talignment length\tmismatches\tgap opens\tq. start\tq. end\ts. start\ts. end\tevalue\tbit score\" > temp_file.txt | cat blast_raw_1vs2.fna |awk '/hits found/{getline;print}' | grep -v \"#\" > blast_best_hits_1vs2.fa"
     os.system(processing_1)
 
+    #if the size of the file is 0 then create an empty file with the appropriate name
     if os.stat("blast_best_hits_1vs2.fa").st_size == 0:
         return os.system("touch reciprocal-hits_"+SP1+"_"+SP2+"_.ids")
 
@@ -123,7 +128,7 @@ def bidirectional_blast(SP1, SP2):
         #remove a index a second time (required)
         column_ids_seq2.to_csv(f, sep='\t',header=False, index=False)
 
-    #retreive accession sequences from the SP2.ids from database SP2 to later be blasted
+    #retreive accession sequences from the SP2.ids from database ouf our second species to later be blasted
     SP2_blast_hits_seq_query = "blastdbcmd -entry_batch SP2.ids -db "+species_name_2[0]+"/"+species_name_2[0]+" -dbtype prot -out SP2_seq_best_hits_blast_1vs2.fa"
 
     #launch command
@@ -156,7 +161,7 @@ def bidirectional_blast(SP1, SP2):
         #remove the \n form it file
         line = line.replace("\n","")
 
-        #launching our blastp with each file name, using our database of our second species, format with tabular and comment lines, count the number of cpu cores the computer has to maximise efficiency
+        #launching our blastp with each file name, using our database of our first species, format with tabular and comment lines, count the number of cpu cores the computer has to maximise efficiency
         #each of the results will be stored in the directory result_blast_2vs1 where the will be labled with the same number of the query file
         blastp_SP1_vs_SP2 = "blastp -query subset_SP2_Blast_reciprocal/"+str(line)+" -db "+species_name_1[0]+"/"+species_name_1[0]+" -outfmt 7 -evalue 1e-"+evalue+" -num_threads "+str(multiprocessing.cpu_count())+" > result_blast_2vs1_reciprocal/blast_raw_2vs1_reciprocal_0"+str(i+1)+".fa"
 
@@ -218,13 +223,15 @@ def multi_RBH(*SP):
         bidirectional_blast(*i)
 
 def proteome_file_finder():
-
+    """
+    Arguments: none
+    Returns: a list of all the proteome files in the directory of this file
+    """
+    #create empty list
     faa_files =[]
+    #cycle for each file that ends with .faa
     for file in glob.glob("*.faa"):
+        #append in the list the file
         faa_files.append(file)
+    #return the list once finished
     return faa_files
-
-
-"""ftp_refseq_proteome_finder()
-
-multi_RBH(*proteome_file_finder())"""

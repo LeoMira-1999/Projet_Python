@@ -130,3 +130,6 @@ def cluster_reader(proteomes):
 
     trees = Phylo.read('RAxML_bipartitions.final_tree', 'newick')
     Phylo.draw(trees)
+
+    os.system("mkdir "+"-".join(proteome_sp_real))
+    os.system("mv aligned_clusters clusters final_super_alignment.afa RAxML* reciprocal* "+"-".join(proteome_sp_real))

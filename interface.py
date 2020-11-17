@@ -9,13 +9,6 @@ from tkinter import ttk
 from RBH import *
 from alignment import *
 from super_alignment import *
-#__________________
-def proteome_file_finder(): #function to create a list of files.faa
-        faa_files =[]
-        for file in glob.glob("*.faa"):
-            faa_files.append(file)
-        return faa_files
-    #___________________
 
 def select_genome(): #function to select_genome for blast
     faa_files_selected=[]
