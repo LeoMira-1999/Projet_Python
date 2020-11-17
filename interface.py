@@ -8,6 +8,7 @@ from tkinter import *
 from tkinter import ttk
 from RBH import *
 from alignment import *
+from cluster_function import *
 from super_alignment import *
 
 def select_genome(): #function to select_genome for blast

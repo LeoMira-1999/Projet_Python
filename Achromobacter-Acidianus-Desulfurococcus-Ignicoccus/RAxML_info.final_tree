@@ -50,34 +50,34 @@ RAxML was called as follows:
 
 
 
-Time for BS model parameter optimization 1.214352
-Bootstrap[0]: Time 1.436886 seconds, bootstrap likelihood -704574.521987, best rearrangement setting 5
-Bootstrap[1]: Time 0.137286 seconds, bootstrap likelihood -704045.708797, best rearrangement setting 6
-Bootstrap[2]: Time 0.141122 seconds, bootstrap likelihood -704144.689803, best rearrangement setting 9
-Bootstrap[3]: Time 0.134732 seconds, bootstrap likelihood -703220.063906, best rearrangement setting 5
-Bootstrap[4]: Time 0.147888 seconds, bootstrap likelihood -703535.434564, best rearrangement setting 8
-Bootstrap[5]: Time 0.116141 seconds, bootstrap likelihood -702516.858313, best rearrangement setting 10
-Bootstrap[6]: Time 0.114470 seconds, bootstrap likelihood -702957.499542, best rearrangement setting 14
-Bootstrap[7]: Time 0.135474 seconds, bootstrap likelihood -703378.607304, best rearrangement setting 14
-Bootstrap[8]: Time 0.117196 seconds, bootstrap likelihood -703319.279739, best rearrangement setting 5
-Bootstrap[9]: Time 0.138169 seconds, bootstrap likelihood -702897.883778, best rearrangement setting 6
+Time for BS model parameter optimization 1.880364
+Bootstrap[0]: Time 2.328762 seconds, bootstrap likelihood -704574.521987, best rearrangement setting 5
+Bootstrap[1]: Time 0.468330 seconds, bootstrap likelihood -704045.708797, best rearrangement setting 6
+Bootstrap[2]: Time 0.279880 seconds, bootstrap likelihood -704144.689803, best rearrangement setting 9
+Bootstrap[3]: Time 0.471691 seconds, bootstrap likelihood -703220.063906, best rearrangement setting 5
+Bootstrap[4]: Time 0.446660 seconds, bootstrap likelihood -703535.434564, best rearrangement setting 8
+Bootstrap[5]: Time 0.298295 seconds, bootstrap likelihood -702516.858313, best rearrangement setting 10
+Bootstrap[6]: Time 0.277278 seconds, bootstrap likelihood -702957.499542, best rearrangement setting 14
+Bootstrap[7]: Time 0.480615 seconds, bootstrap likelihood -703378.607304, best rearrangement setting 14
+Bootstrap[8]: Time 0.366727 seconds, bootstrap likelihood -703319.279739, best rearrangement setting 5
+Bootstrap[9]: Time 0.470350 seconds, bootstrap likelihood -702897.883778, best rearrangement setting 6
 
 
-Overall Time for 10 Rapid Bootstraps 2.734860 seconds
-Average Time per Rapid Bootstrap 0.273486 seconds
+Overall Time for 10 Rapid Bootstraps 6.027701 seconds
+Average Time per Rapid Bootstrap 0.602770 seconds
 
 Starting ML Search ...
 
 Fast ML optimization finished
 
-Fast ML search Time: 3.350847 seconds
+Fast ML search Time: 5.185940 seconds
 
 Slow ML Search 0 Likelihood: -770311.376047
 Slow ML Search 1 Likelihood: -770311.376047
 Slow ML optimization finished
 
-Slow ML search Time: 6.141086 seconds
-Thorough ML search Time: 1.376777 seconds
+Slow ML search Time: 7.170581 seconds
+Thorough ML search Time: 1.588233 seconds
 
 Final ML Optimization Likelihood: -770311.376051
 
@@ -299,9 +299,9 @@ freq pi(Y): 0.032000
 freq pi(V): 0.073000
 
 
-ML search took 10.889057 secs or 0.003025 hours
+ML search took 13.963582 secs or 0.003879 hours
 
-Combined Bootstrap and ML search took 13.626552 secs or 0.003785 hours
+Combined Bootstrap and ML search took 19.991299 secs or 0.005553 hours
 
 Drawing Bootstrap Support Values on best-scoring ML tree ...
 
@@ -322,5 +322,5 @@ Best-scoring ML tree with support values written to: /home/leonardo/github/Proje
 
 Best-scoring ML tree with support values as branch labels written to: /home/leonardo/github/Projet_Python/RAxML_bipartitionsBranchLabels.final_tree
 
-Overall execution time for full ML analysis: 13.626962 secs or 0.003785 hours or 0.000158 days
+Overall execution time for full ML analysis: 19.992687 secs or 0.005554 hours or 0.000231 days
 

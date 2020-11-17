@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import glob #import glob to read files
 from Bio import Phylo #import phylo from bio to draw a phylogenetic tree
+import os #import os to use bash
 
 def gap_filer(proteomes):
     """
@@ -23,7 +24,7 @@ def gap_filer(proteomes):
         #append the family name to the list of family names
         proteome_sp_real.append(names[0])
 
-    
+
     for file in glob.glob("aligned_clusters/*"):
         cleaned_file = file.split("aligned_clusters/")
 
