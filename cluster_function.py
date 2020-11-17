@@ -2,8 +2,6 @@ import os
 import itertools
 
 
-
-
 def RBH_comparator():
 
     os.system("ls reciprocal* > filename.txt")

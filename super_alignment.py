@@ -1,7 +1,6 @@
 from alignment import *
 import glob
 from itertools import chain
-import reprlib
 from Bio import Phylo
 
 def gap_filer(proteomes):

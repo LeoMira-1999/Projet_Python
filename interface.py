@@ -6,10 +6,9 @@ import numpy as np
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
-from main import *
+from RBH import *
 from alignment import *
 from super_alignment import *
-from option_fonctionelle import *
 #__________________
 def proteome_file_finder(): #function to create a list of files.faa
         faa_files =[]

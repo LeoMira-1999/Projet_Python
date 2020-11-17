@@ -1,4 +1,4 @@
-from main import *
+from RBH import *
 from cluster_function import *
 import os
 import glob
