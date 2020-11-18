@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#@ Authors: Mirandola Leonardo and Duplan Alexandre
 
 import os #importing os to let us use bash
 import itertools #import itertools
@@ -8,6 +9,7 @@ def RBH_comparator():
     """
     Arguments: None
     Returns: creates a dictionary that will contain as a key the filename and the value will be a list containing a list of each pairs
+    Author: Mirandola Leonardo
     """
     #read each RBH filename and cconcatenate them
     os.system("ls reciprocal* > filename.txt")
@@ -60,6 +62,7 @@ def RBH_analysor(dict):
     """
     Arguments: takes the dictionnary created by RBH_comparator
     Returns: a list of all the non redundant clusters from the dictionnary storing the reciprocals
+    Author: Mirandola Leonardo
     """
 
     #create an empty list to store the clusters
@@ -199,6 +202,7 @@ def cluster_species_finder(list):
     """
     Arguments: takes a list
     Returns:
+    Author: Duplan Alexandre
     """
 
     os.system("ls *-protein.faa > filename-protein.txt")
@@ -225,6 +229,7 @@ def cluster_species_redundance_remover(cluster_AC, cluster_SP):
     """
     Arguments: takes the clusters with accession code and the same list of clusters but with species instead
     Returns: a non redundant list of clusters AC and SP but redundant species from the species cluster have been removed from both lists
+    Author: Mirandola Leonardo
     """
 
     #set 2 empty lists

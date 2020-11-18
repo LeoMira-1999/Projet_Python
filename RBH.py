@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+#@ Author: Mirandola Leonardo and Duplan Alexandre
+
+
 import os #importing os to let us use bash
 import multiprocessing #importing multiprocessing will let us count the amount of cpu cores for an optimised use and faster processing of blastp
 import pandas as pd #importing pandas to read our blasted files and retreive the information needed
@@ -11,6 +14,7 @@ def mean_prot_length_evalue(SP):
     """
     Arguments: a species file name
     Returns: calculated evalue it should use in a later blast program
+    Author: Mirandola Leonardo
     """
     #use stats from bash seqkit program to get information about our species and store it in a file
     os.system("./seqkit stats "+SP+" > SP_mean_prot_length.txt")
@@ -50,6 +54,7 @@ def bidirectional_blast(SP1, SP2):
     """
     Arguments: species 1 file name and species 2 file name
     Returns: a document where you hava the AC of each reciprocal hits
+    Authors: Mirandola Leonardo and Duplan Alexandre
     """
     # retreive species 1 name
     species_name_1 = SP1.split("-protein.faa")
@@ -208,6 +213,7 @@ def multi_RBH(*SP):
     """
     Arguments: can take N number of arguments
     Returns: all the possible non redondant combinations for each especies to have a RBH
+    Author: Mirandola Leonardo
     """
 
     #turns all the arguments into a list
@@ -226,6 +232,7 @@ def proteome_file_finder():
     """
     Arguments: none
     Returns: a list of all the proteome files in the directory of this file
+    Author: Mirandola Leonardo
     """
     #create empty list
     faa_files =[]

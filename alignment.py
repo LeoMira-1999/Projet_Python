@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+#@ Author: Mirandola Leonardo
+
+
 import os #import os to use bash
 import glob #import glob to read files
 
@@ -7,6 +10,7 @@ def RBH_DB_creator(list):
     """
     Arguments: takes in a list of the proteome files
     Result: create databases for each proteome
+    Author: Mirandola Leonardo
     """
 
     #for each filename in the list
@@ -23,6 +27,7 @@ def cluster_alignment(non_redundant_AC_list,non_redundant_SP_list):
     """
     Arguments: list of non redundant AC and list of non redundant species from the cluster AC
     Result: create a file of the aligned cluster using MAFFT
+    Author: Mirandola Leonardo
     """
 
     #create a directory to store the clusters
@@ -92,6 +97,7 @@ def RBH_DB_remover(list):
     """
     Arguments: takes in a list of the proteome files
     Results: remove databases for each proteome
+    Author: Mirandola Leonardo
     """
 
     #for each file in list
