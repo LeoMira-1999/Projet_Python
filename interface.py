@@ -1,7 +1,3 @@
-"""
-Author: DUPLAN Alexandre
-"""
-
 import os        #import os to let us use bash
 import pandas as pd         #import pandas to read our blasted files
 import glob             #import glob to read files
@@ -22,6 +18,7 @@ def select_proteome():        #function to select proteomes for blast
     """
     Argument:[none]
     Return : the list of proteomes (file.faa) to blast
+    Author: DUPLAN Alexandre
     """
     #empty list of file.faa to blast
     faa_files_selected=[]
@@ -120,6 +117,7 @@ def list_file_faa():
     """
     Argument: [None] but get all proteomes from the current directory (thank's to the function "proteome_file_finder")
     Result: create all checkbuttons to select proteomes for the blast
+    Author: DUPLAN Alexandre
     """
 
     #for all value in proteome_file_finder (all proteomes => all file.faa find by proteome_file_finder)
@@ -251,6 +249,7 @@ def directory_choice():
     """
     Argument: [None] but get the sequences name input by the user and split it in 2
     Result: the name of the organism selected and his taxon
+    Author: DUPLAN Alexandre
     """
     #get the entry input by the USER
     valeur_temp = entry_organism.get()# (example = "bac:salmonella_bongori")
@@ -288,6 +287,7 @@ def get_seq():
     """
     Argument: [None] but get the name of the organism selected and his taxon
     Result: download the sequence
+    Author: DUPLAN Alexandre
     """
     #changes the current directory, choose the name of the organism and his taxon
     directory_choice()
@@ -357,8 +357,9 @@ class Organism_refseq(Frame):
     # Create main GUI window
     def create_widgets(self):
         """
-        Arguments:
-        Returns:
+        Arguments: [none]
+        Result: create the listbox
+        Author: DUPLAN Alexandre
         """
 
         #variable of our entry is a string
@@ -383,8 +384,9 @@ class Organism_refseq(Frame):
 
     def update_list(self, *args):
         """
-        Arguments:
-        Returns:
+        Arguments: [none] or the term write by the USER (search_var)
+        Result: adds all organisms (bacteria, archaea and vertebrate_mammalian) get on NCBI in the listbox, according to the word input by the USER
+        Author: DUPLAN Alexandre
         """
         #get the variable i the field (the word input by the USER)
         search_term = self.search_var.get()
@@ -404,10 +406,11 @@ class Organism_refseq(Frame):
         organism_vertebrate_mammalian_head = ["ve_m:" + item for item in organism_vertebrate_mammalian]
         lbox_list.extend(organism_vertebrate_mammalian_head)
 
-        #delete words from the lbox when it's different than the input words in the research field
+        #delete words from the lbox
         self.lbox.delete(0, END)
 
-        #Input all organisms name from the list (lbox_list) in the listbox (lbox)
+        #Input all organisms name from the list (lbox_list) in the listbox (lbox) when nothing it's write in search_term
+        #When a word is written in the search_term, the loop adds only the term that contains the word in search term
         for item in lbox_list:
             if search_term.lower() in item.lower():
                 self.lbox.insert(END, item)
