@@ -4,12 +4,14 @@ Author: DUPLAN Alexandre
 
 import os        #importing os to let us use bash
 import pandas as pd         #importing pandas to read our blasted files
-import glob
-import ftplib
-import numpy as np
-import tkinter as tk
+import glob             #import glob to read files
+import ftplib       #import ftp library to connect on the web
+
+import tkinter as tk    #import Tkinter for interface
 from tkinter import *
 from tkinter import ttk
+
+#import the other file for the function launch
 from RBH import *
 from alignment import *
 from super_alignment import *
@@ -70,7 +72,7 @@ def launch():
     #Returns all non redondant combinations for each proteomes selected to have a RBH
     multi_RBH(*proteomes)
 
-    
+
     cluster_AC_nr, cluster_SP_nr = cluster_species_redundance_remover(RBH_analysor(RBH_comparator()), cluster_species_finder(RBH_analysor(RBH_comparator())))
 
     #create a file of the aligned cluster using MAFFT
