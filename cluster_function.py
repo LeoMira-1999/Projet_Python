@@ -200,27 +200,43 @@ def RBH_analysor(dict):
 
 def cluster_species_finder(list):
     """
-    Arguments: takes a list
-    Returns:
+    Arguments: takes a list of protein clusters  (list of lists)
+    Returns: list of organism clusters (list of lists)
     Author: Duplan Alexandre
     """
 
+    #os command to get all file named " *-protein.faa " in the current directory and save them in "filename-protein.txt"
     os.system("ls *-protein.faa > filename-protein.txt")
+
+    #read the file create
     file_prot = open("filename-protein.txt", "r")
     file_name= file_prot.readlines()
+
+    #for each line, we just get the file name (we have a little problem because spaces can be add at the end of the line)
+    #so we split the line and add the end ourself
     for line in file_name:
         line_2=line.split('.faa')
         filename=str(line_2[0])+'.faa'
-#boucle qui modifie le nom des prot dans les clusters
+
+        #loop which modifies the name of prot in clusters by the organism name:
+        #we need to modified prot by prot in all clusters
         for cluster1 in list:
             for prot in cluster1:
+
+                #open proteomes by proteomes (file.faa)
                 with open(filename) as file:
+
+                    #if a prot is in the proteomes
                     if prot in file.read():
-                        organism_name=filename.split("-protein")
+
+                        organism_name=filename.split("-protein")#we just want the name before "-protein" => organism name
+
+                        #for all proteins in the cluster, if it's in a proteomes file, change the protein name by the organism name
                         for index, item in enumerate(cluster1):
                             if prot in item:
                                 cluster1[index] = organism_name[0]
 
+    #remove the file create at the beginning
     os.system("rm filename-protein.txt")
 
     return list
