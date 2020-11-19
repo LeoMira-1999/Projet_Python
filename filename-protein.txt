@@ -1,5 +1,0 @@
-Acetobacter-nitrogenifigens-protein.faa
-Desulfurococcus-amylolyticus-protein.faa
-Ferroglobus-placidus-protein.faa
-Geoglobus-acetivorans-protein.faa
-Ignicoccus-hospitalis-protein.faa

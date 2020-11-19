@@ -13,18 +13,19 @@ from tkinter import ttk
 from RBH import *
 from alignment import *
 from super_alignment import *
+from cluster_function import *
 #__________________
 #function to create a list of files.faa
 
 def proteome_file_finder():
-        """
-        Argument:[None]
-        Return : the list of proteomes (file.faa) in the current directory
-        """
-        faa_files =[]
-        for file in glob.glob("*.faa"):
-            faa_files.append(file)
-        return faa_files
+    """
+    Argument:[None]
+    Return : the list of proteomes (file.faa) in the current directory
+    """
+    faa_files =[]
+    for file in glob.glob("*.faa"):
+        faa_files.append(file)
+    return faa_files
     #___________________
 
 def select_proteome():        #function to select proteomes for blast
@@ -60,7 +61,6 @@ def select_proteome():        #function to select proteomes for blast
     return faa_files_selected
 
 def launch():
-    
 
     proteomes = select_proteome()
 
@@ -70,7 +70,7 @@ def launch():
     #Returns all non redondant combinations for each proteomes selected to have a RBH
     multi_RBH(*proteomes)
 
-    #
+    
     cluster_AC_nr, cluster_SP_nr = cluster_species_redundance_remover(RBH_analysor(RBH_comparator()), cluster_species_finder(RBH_analysor(RBH_comparator())))
 
     #create a file of the aligned cluster using MAFFT
@@ -121,10 +121,10 @@ organism_dico = dict()
 
 #function to create checkbutton on the first tab
 def list_file_faa():
-        """
-        Argument: [None] but get all proteomes from the current directory (thank's to the function "proteome_file_finder")
-        Result: create all checkbuttons to select proteomes for the blast
-        """
+    """
+    Argument: [None] but get all proteomes from the current directory (thank's to the function "proteome_file_finder")
+    Result: create all checkbuttons to select proteomes for the blast
+    """
 
     #for all value in proteome_file_finder (all proteomes => all file.faa find by proteome_file_finder)
     for i, value in enumerate(proteome_file_finder()):
